@@ -20,7 +20,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.PROFILE]: '/profile',
-    // последний
+    // last
     [AppRoutes.NOT_FOUND]: '*',
 };
 
