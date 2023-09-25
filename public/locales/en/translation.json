@@ -22,5 +22,7 @@
   "Выйти": "Logout",
   "Укажите валюту": "Choose currency",
   "Укажите страну": "Choose country",
-  "Профиль": "Profile"
+  "Профиль": "Profile",
+  "Статья": "Article",
+  "Произошла ошибка при загрузке статьи.": "An error occurred while loading."
 }
