@@ -1,13 +1,6 @@
 export {
-    ArticleSchema,
-    IArticle,
-    ArticleTypeEnum,
-    BlockTypeEnum,
-} from './model/types/article';
+    ArticleDetails,
+} from './ui/ArticleDetails/ArticleDetails';
 
-export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
-
-export {
-    articleActions,
-    articleReducer,
-} from './model/slice/articleSlice';
+export type { Article } from './model/types/article';
+export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';

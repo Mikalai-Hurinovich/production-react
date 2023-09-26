@@ -4,7 +4,7 @@ import { Currency } from 'entities/Currency';
 import { getProfileData } from './getProfileData';
 
 describe('getProfileData.test', () => {
-    test('should return data', () => {
+    test('should return error', () => {
         const data = {
             username: 'admin',
             age: 22,

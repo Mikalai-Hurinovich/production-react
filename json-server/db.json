@@ -180,13 +180,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://imgv3.fotor.com/images/gallery/american-anime-stule-naked-man-avatar.jpg"
     },
     {
       "id": "2",
-      "username": "mikola",
+      "username": "Alisa",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://imgv3.fotor.com/images/gallery/watercolor-female-avatar.jpg"
     }
   ],
   "profile": {

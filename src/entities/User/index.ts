@@ -1,9 +1,10 @@
 export {
     getUserAuthData,
 } from './model/selectors/getUserAuthData/getUserAuthData';
+
 export {
-    getUserMounted,
-} from './model/selectors/getUserMounted/getUserMounted';
+    getUserInited,
+} from './model/selectors/getUserInited/getUserInited';
 
 export {
     userReducer,
@@ -11,5 +12,5 @@ export {
 } from './model/slice/userSlice';
 export {
     UserSchema,
-    User,
+    IUser,
 } from './model/types/user';
