@@ -13,22 +13,23 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { fetchArticleDataById } from 'entities/Article/model/services/fetchArticleDataById';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import cls from './ArticleDetails.module.scss';
-import { ArticleBlockType, BlockTypeEnum } from '../../model/types/article';
-import { getArticleDetailsIsLoading } from '../../model/selector/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
-import { getArticleDetailsData } from '../../model/selector/getArticleDetailsData/getArticleDetailsData';
-import { getArticleDetailsError } from '../../model/selector/getArticleDetailsError/getArticleDetailsError';
-import { articleReducer } from '../../model/slice/articleSlice';
+import {
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
+} from '../../model/selectors/articleDetails';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 
 interface ArticleDetailsProps {
     className?: string;
     id: string;
 }
 
-// Load async reducers
 const reducers: ReducersList = {
-    article: articleReducer,
+    articleDetails: articleDetailsReducer,
 };
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
@@ -38,9 +39,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
-    const renderBlock = useCallback((block: ArticleBlockType) => {
+
+    const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
-        case BlockTypeEnum.CODE:
+        case ArticleBlockType.CODE:
             return (
                 <ArticleCodeBlockComponent
                     key={block.id}
@@ -48,7 +50,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     className={cls.block}
                 />
             );
-        case BlockTypeEnum.IMAGE:
+        case ArticleBlockType.IMAGE:
             return (
                 <ArticleImageBlockComponent
                     key={block.id}
@@ -56,7 +58,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     className={cls.block}
                 />
             );
-        case BlockTypeEnum.TEXT:
+        case ArticleBlockType.TEXT:
             return (
                 <ArticleTextBlockComponent
                     key={block.id}
@@ -71,7 +73,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleDataById({ id }));
+            dispatch(fetchArticleById(id));
         }
     }, [dispatch, id]);
 
@@ -118,7 +120,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <Icon className={cls.icon} Svg={CalendarIcon} />
                     <Text text={article?.createdAt} />
                 </div>
-                { article?.blocks && article.blocks.map(renderBlock) }
+                {article?.blocks.map(renderBlock)}
             </>
         );
     }
@@ -126,7 +128,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.ArticleDetails, {}, [className])}>
-                { content }
+                {content}
             </div>
         </DynamicModuleLoader>
     );

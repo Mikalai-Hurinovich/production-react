@@ -1,54 +1,46 @@
-export enum BlockTypeEnum {
-    TEXT = 'TEXT',
+export enum ArticleBlockType {
     CODE = 'CODE',
-    IMAGE = 'IMAGE'
+    IMAGE = 'IMAGE',
+    TEXT = 'TEXT',
 }
 
-export interface IArticleBlock {
+export interface ArticleBlockBase {
     id: string;
-    type: BlockTypeEnum;
+    type: ArticleBlockType;
 }
 
-export enum ArticleTypeEnum {
-    IT = 'IT',
-    NEWS = 'IT',
-    SOCIETY = 'SOCIETY',
-    ECONOMICS = 'ECONOMICS',
-    SCIENCE = 'SCIENCE',
-}
-
-export interface IArticleTextBlock extends IArticleBlock {
-    title: string;
-    paragraphs: string[];
-    type: BlockTypeEnum.TEXT;
-}
-
-export interface IArticleCodeBlock extends IArticleBlock {
-    type: BlockTypeEnum.CODE;
+export interface ArticleCodeBlock extends ArticleBlockBase {
+    type: ArticleBlockType.CODE;
     code: string;
 }
 
-export interface IArticleImageBlock extends IArticleBlock {
-    type: BlockTypeEnum.IMAGE;
+export interface ArticleImageBlock extends ArticleBlockBase {
+    type: ArticleBlockType.IMAGE;
     src: string;
     title: string;
 }
 
-export type ArticleBlockType = IArticleTextBlock | IArticleCodeBlock | IArticleImageBlock;
+export interface ArticleTextBlock extends ArticleBlockBase {
+    type: ArticleBlockType.TEXT;
+    paragraphs: string[];
+    title?: string;
+}
 
-export interface IArticle {
+export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
+
+export enum ArticleType {
+    IT = 'IT',
+    SCIENCE = 'SCIENCE',
+    ECONOMICS = 'ECONOMICS'
+}
+
+export interface Article {
     id: string;
     title: string;
     subtitle: string;
     img: string;
     views: number;
     createdAt: string;
-    type: ArticleTypeEnum[];
-    blocks: ArticleBlockType[];
-}
-
-export interface ArticleSchema {
-    isLoading: boolean;
-    error?: string;
-    data?: IArticle;
+    type: ArticleType[];
+    blocks: ArticleBlock[];
 }

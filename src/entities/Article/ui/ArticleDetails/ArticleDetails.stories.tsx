@@ -2,7 +2,8 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleTypeEnum, BlockTypeEnum, IArticle } from 'entities/Article/model/types/article';
+import { Article } from 'entities/Article';
+import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
@@ -15,18 +16,18 @@ export default {
 
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
 
-const article: IArticle = {
+const article: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
-    type: [ArticleTypeEnum.IT],
+    type: [ArticleType.IT],
     blocks: [
         {
             id: '1',
-            type: BlockTypeEnum.TEXT,
+            type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -36,12 +37,12 @@ const article: IArticle = {
         },
         {
             id: '4',
-            type: BlockTypeEnum.CODE,
+            type: ArticleBlockType.CODE,
             code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
         },
         {
             id: '5',
-            type: BlockTypeEnum.TEXT,
+            type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -54,7 +55,7 @@ const article: IArticle = {
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({
-    article: {
+    articleDetails: {
         data: article,
     },
 })];
@@ -62,7 +63,7 @@ Normal.decorators = [StoreDecorator({
 export const Loading = Template.bind({});
 Loading.args = {};
 Loading.decorators = [StoreDecorator({
-    article: {
+    articleDetails: {
         isLoading: true,
     },
 })];
@@ -70,7 +71,7 @@ Loading.decorators = [StoreDecorator({
 export const Error = Template.bind({});
 Error.args = {};
 Error.decorators = [StoreDecorator({
-    article: {
+    articleDetails: {
         error: 'error',
     },
 })];
