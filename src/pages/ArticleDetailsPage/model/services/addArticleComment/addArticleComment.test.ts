@@ -12,7 +12,7 @@ jest.mock('entities/Article');
 const getUserAuthData = userAuthSelectors.getUserAuthData as jest.Mock;
 const getArticleDetailsData = articleSelectors.getArticleDetailsData as jest.Mock;
 
-// Provide mock implementations for the selector function
+// Provide mock implementations for the selectors function
 getUserAuthData.mockImplementation(() => ({
     id: '3',
     username: 'Mikola',
