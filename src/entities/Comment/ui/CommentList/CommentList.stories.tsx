@@ -81,3 +81,8 @@ Dark.args = {
     ],
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Loading = Template.bind({});
+Loading.args = {
+    isLoading: true,
+};

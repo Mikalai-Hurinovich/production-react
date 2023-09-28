@@ -29,6 +29,60 @@
       "body": "some comment",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "body": "Hello!",
+      "articleId": "1",
+      "userId": "1",
+      "id": "y-VojzE"
+    },
+    {
+      "body": "Hello!",
+      "articleId": "1",
+      "userId": "1",
+      "id": "MxlNx60"
+    },
+    {
+      "body": "!",
+      "articleId": "1",
+      "userId": "1",
+      "id": "Xg0cAuv"
+    },
+    {
+      "body": "awd",
+      "articleId": "1",
+      "userId": "1",
+      "id": "CNGlr3J"
+    },
+    {
+      "body": "awdawd123123",
+      "articleId": "1",
+      "userId": "1",
+      "id": "BwBMjUL"
+    },
+    {
+      "body": "AAAAAAAAAAAAAAAAAAA",
+      "articleId": "1",
+      "userId": "1",
+      "id": "w6vn6RX"
+    },
+    {
+      "body": "Comment Text",
+      "articleId": "1",
+      "userId": "1",
+      "id": "5DqLQt_"
+    },
+    {
+      "body": "Alisa the best!!",
+      "articleId": "1",
+      "userId": "1",
+      "id": "Ox45-Oe"
+    },
+    {
+      "body": "Alisa!",
+      "articleId": "2",
+      "userId": "2",
+      "id": "ZGse9WS"
     }
   ],
   "articles": [
@@ -191,14 +245,28 @@
       "avatar": "https://imgv3.fotor.com/images/gallery/watercolor-female-avatar.jpg"
     }
   ],
-  "profile": {
-    "first": "admin",
-    "lastname": "123",
-    "age": 21,
-    "currency": "USD",
-    "country": "Belarus",
-    "city": "Minsk",
-    "username": "admin213",
-    "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Mikola",
+      "lastname": "Huryn",
+      "age": 21,
+      "currency": "USD",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "admin213",
+      "avatar": "https://imgv3.fotor.com/images/gallery/american-anime-stule-naked-man-avatar.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Alisa",
+      "lastname": "Fernson",
+      "age": 21,
+      "currency": "USD",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "admin213",
+      "avatar": "https://imgv3.fotor.com/images/gallery/watercolor-female-avatar.jpg"
+    }
+  ]
 }

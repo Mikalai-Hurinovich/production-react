@@ -1,7 +1,7 @@
-import { Article } from 'entities/Article';
+import { IArticle } from 'entities/Article';
 
 export interface ArticleDetailsSchema {
     isLoading: boolean;
     error?: string;
-    data?: Article;
+    data?: IArticle;
 }
