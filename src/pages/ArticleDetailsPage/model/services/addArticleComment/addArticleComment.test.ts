@@ -29,6 +29,11 @@ describe('addArticleComment.test', () => {
             subtitle: 'Что нового в JS за 2022 год?',
             img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
             views: 1022,
+            user: {
+                id: '1',
+                avatar: 'https://imgv3.fotor.com/images/gallery/american-anime-stule-naked-man-avatar.jpg',
+                username: 'Mikola',
+            },
             createdAt: '26.02.2022',
             type: [
                 ArticleType.IT,

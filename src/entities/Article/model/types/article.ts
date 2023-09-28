@@ -1,3 +1,5 @@
+import { IUser } from 'entities/User';
+
 export enum ArticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
@@ -34,9 +36,15 @@ export enum ArticleType {
     ECONOMICS = 'ECONOMICS'
 }
 
+export enum ArticleViewEnum {
+    LIST = 'LIST',
+    PLATE = 'PLATE'
+}
+
 export interface IArticle {
     id: string;
     title: string;
+    user: IUser;
     subtitle: string;
     img: string;
     views: number;
