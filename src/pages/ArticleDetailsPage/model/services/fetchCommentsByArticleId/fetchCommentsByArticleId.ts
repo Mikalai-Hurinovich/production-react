@@ -5,7 +5,7 @@ import { IComment } from 'entities/Comment';
 export const fetchCommentsByArticleId = createAsyncThunk<IComment[],
     string | undefined,
     ThunkConfig<string>>(
-        'articleDetails/fetchCommentsByArticleId',
+        'articleDetails/addArticleComment',
         async (articleId, thunkApi) => {
             const { extra, rejectWithValue } = thunkApi;
 

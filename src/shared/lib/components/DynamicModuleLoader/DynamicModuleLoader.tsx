@@ -16,7 +16,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     const {
         children,
         reducers,
-        removeAfterUnmount,
+        removeAfterUnmount = true,
     } = props;
 
     const store = useStore() as ReduxStoreWithManager;
@@ -42,7 +42,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     return (
         // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
-            {children}
+            { children }
         </>
     );
 };

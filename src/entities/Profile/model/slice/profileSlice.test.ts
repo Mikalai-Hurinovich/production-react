@@ -1,5 +1,9 @@
 import {
-    profileActions, profileReducer, ProfileSchema, updateProfileData, ValidateProfileError,
+    profileActions,
+    profileReducer,
+    ProfileSchema,
+    updateProfileData,
+    ValidateProfileError,
 } from 'entities/Profile';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
@@ -72,7 +76,7 @@ describe('profileSlice.test', () => {
 
         expect(profileReducer(
             state as ProfileSchema,
-            updateProfileData.fulfilled(data, ''),
+            updateProfileData.fulfilled(data, '', '1'),
         )).toEqual({
             isLoading: false,
             validateErrors: undefined,

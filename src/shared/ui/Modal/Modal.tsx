@@ -1,7 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
-    MutableRefObject,
-    ReactNode, useCallback, useEffect, useRef, useState,
+    MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
@@ -47,7 +46,6 @@ export const Modal = (props: ModalProps) => {
         }
     }, [onClose]);
 
-    // Новые ссылки!!!
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             closeHandler();
@@ -86,7 +84,7 @@ export const Modal = (props: ModalProps) => {
                         className={cls.content}
                         onClick={onContentClick}
                     >
-                        {children}
+                        { children }
                     </div>
                 </div>
             </div>

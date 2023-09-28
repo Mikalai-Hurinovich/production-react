@@ -34,7 +34,7 @@ export enum ArticleType {
     ECONOMICS = 'ECONOMICS'
 }
 
-export interface Article {
+export interface IArticle {
     id: string;
     title: string;
     subtitle: string;
