@@ -8,23 +8,21 @@ const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {
         const element = (
             <Suspense fallback={<PageLoader />}>
-                <div className="page-wrapper">
-                    {route.element}
-                </div>
+                { route.element }
             </Suspense>
         );
         return (
             <Route
                 key={route.path}
                 path={route.path}
-                element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+                element={route.authOnly ? <RequireAuth>{ element }</RequireAuth> : element}
             />
         );
     }, []);
 
     return (
         <Routes>
-            {Object.values(routeConfig).map(renderWithWrapper)}
+            { Object.values(routeConfig).map(renderWithWrapper) }
         </Routes>
     );
 };

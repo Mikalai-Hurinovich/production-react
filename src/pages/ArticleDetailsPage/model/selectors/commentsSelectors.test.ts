@@ -2,9 +2,9 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
-} from 'pages/ArticleDetailsPage/model/selectors/comments';
+} from 'pages/ArticleDetailsPage/model/selectors/commentsSelectors';
 
-describe('comments.test', () => {
+describe('commentsSelectors.test', () => {
     test('should return comments loading state', () => {
         const state: DeepPartial<StateSchema> = { articleDetailsComments: { isLoading: true } };
         expect(getArticleCommentsIsLoading(state as StateSchema)).toEqual(true);

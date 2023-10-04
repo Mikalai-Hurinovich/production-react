@@ -26,20 +26,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
         return <ArticleListItem className={styles.card} key={article.id} article={article} view={view} />;
     }
 
-    if (isLoading) {
-        return (
-            <div className={classNames(styles.articleList, {}, [className])}>
-                { new Array(view === ArticleViewEnum.PLATE ? 3 : 6)
-                    .fill(<ArticleListItemSkeleton view={view} />)
-                    .map(((a, i) => ({ ...a, id: i, key: i }))) }
-            </div>
-        );
-    }
     return (
         <div className={classNames(styles.articleList, {}, [className])}>
             { articles.length
                 ? articles.map(renderArticle)
                 : null }
+            { isLoading && (
+                <div className={classNames(styles.articleList, {}, [className])}>
+                    { new Array(view === ArticleViewEnum.PLATE ? 4 : 6)
+                        .fill(<ArticleListItemSkeleton view={view} />)
+                        .map(((a, i) => ({ ...a, id: i, key: i }))) }
+                </div>
+            ) }
         </div>
     );
 });

@@ -1,0 +1,10 @@
+.articlesViewSwitcher {
+    .icon {
+        transition: fill 0.3s ease;
+        cursor: pointer;
+
+        &:not(.active) {
+            fill: gray;
+        }
+    }
+}

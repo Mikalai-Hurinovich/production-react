@@ -1,5 +1,5 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, memo } from 'react';
 import cls from './Text.module.scss';
 
 export enum TextTheme {
@@ -18,7 +18,7 @@ export enum TextSize {
     L = 'size_l',
 }
 
-interface TextProps {
+interface TextProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     className?: string;
     title?: string;
     text?: string;
@@ -45,8 +45,8 @@ export const Text = memo((props: TextProps) => {
 
     return (
         <div className={classNames(cls.Text, mods, [className])}>
-            {title && <p className={cls.title}>{title}</p>}
-            {text && <p className={cls.text}>{text}</p>}
+            { title && <p className={cls.title}>{ title }</p> }
+            { text && <p className={cls.text}>{ text }</p> }
         </div>
     );
 });

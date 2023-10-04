@@ -26,7 +26,7 @@ export const CommentList = memo((props: CommentListProps) => {
         );
     }
     return (
-        <div className={classNames(cls.CommentList, {}, [className])}>
+        <div className={classNames(cls.commentList, {}, [className])}>
             { comments?.length
                 ? comments.map((comment) => (
                     <CommentCard

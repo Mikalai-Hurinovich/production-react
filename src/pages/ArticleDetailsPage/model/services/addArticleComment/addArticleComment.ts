@@ -18,8 +18,6 @@ export const addArticleComment = createAsyncThunk<IComment,
                 const userData = getUserAuthData(getState());
                 const article = getArticleDetailsData(getState());
 
-                // console.log('userData:', userData, 'commentText:', commentText, 'article:', article);
-
                 if (!userData || !commentText || !article) {
                     return rejectWithValue('Data Error');
                 }
