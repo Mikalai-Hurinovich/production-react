@@ -11,4 +11,6 @@ export interface ArticlesPageSchema extends EntityState<IArticle> {
     isLoading?: boolean;
     error?: string;
 
+    _inited: boolean;
+
 }

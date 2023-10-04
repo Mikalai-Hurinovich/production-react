@@ -41,7 +41,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
     const { id } = useParams<{ id: string }>();
-
     const validateErrorTranslates = {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
@@ -89,7 +88,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <PageWrapper className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 { validateErrors?.length && validateErrors.map((err) => (

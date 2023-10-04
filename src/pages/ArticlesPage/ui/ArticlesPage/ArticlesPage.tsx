@@ -9,7 +9,11 @@ import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher/ui/ArticlesV
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticles/fetchNextArticlesPage';
-import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import {
+    getArticlesPageInited,
+    getArticlesPageIsLoading,
+    getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import cls from './ArticlesPage.module.scss';
@@ -29,22 +33,26 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const articles = useSelector(getArticles.selectAll);
     const view = useSelector(getArticlesPageView);
     const isLoading = useSelector(getArticlesPageIsLoading);
+    const isInited = useSelector(getArticlesPageInited);
     const handleViewClick = useCallback((currentView: ArticleViewEnum) => {
         dispatch(articlesPageActions.setView(currentView));
     }, [dispatch]);
 
     const onNextArticlePartLoad = useCallback(() => {
         dispatch(fetchNextArticlesPage());
-    }, [dispatch]);
+        // eslint-disable-next-line
+    }, [ dispatch, isLoading ]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initPage());
-        dispatch(fetchArticles({
-            page: 1,
-        }));
+        if (!isInited) {
+            dispatch(articlesPageActions.initPage());
+            dispatch(fetchArticles({
+                page: 1,
+            }));
+        }
     }, []);
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <PageWrapper
                 onScrollEnd={onNextArticlePartLoad}
                 className={classNames(cls.ArticlesPage, {}, [className])}

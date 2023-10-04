@@ -3,6 +3,7 @@ import { ArticleViewEnum } from 'entities/Article';
 import {
     getArticlesPageError,
     getArticlesPageHasMore,
+    getArticlesPageInited,
     getArticlesPageIsLoading,
     getArticlesPageLimit,
     getArticlesPageNumber,
@@ -57,5 +58,13 @@ describe('', () => {
             },
         };
         expect(getArticlesPageView(state as StateSchema)).toEqual(ArticleViewEnum.LIST);
+    });
+    test('should return articlesPage inited', () => {
+        const state: DeepPartial<StateSchema> = {
+            articlesPage: {
+                _inited: false,
+            },
+        };
+        expect(getArticlesPageInited(state as StateSchema)).toEqual(false);
     });
 });

@@ -24,6 +24,7 @@ const articlesPageSlice = createSlice({
         page: 1,
         hasMore: false,
         limit: 2,
+        _inited: false,
     }),
     reducers: {
         setView: (state, action) => {
@@ -34,6 +35,7 @@ const articlesPageSlice = createSlice({
             const view = localStorage.getItem(ARTICLES_PAGE_VIEW) as ArticleViewEnum;
             state.view = view;
             state.limit = view === ArticleViewEnum.PLATE ? 4 : 9;
+            state._inited = true;
         },
         setPage: (state, action) => {
             state.page = action.payload;
