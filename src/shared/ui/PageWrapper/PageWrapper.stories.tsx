@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { PageWrapper } from './PageWrapper';
 
 export default {
@@ -13,4 +14,8 @@ export default {
 const Template: ComponentStory<typeof PageWrapper> = (args) => <PageWrapper {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.decorators = [StoreDecorator({
+    scrollSave: {
+        scroll: { '/page': 0 },
+    },
+})];

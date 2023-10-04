@@ -56,6 +56,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             <PageWrapper
                 onScrollEnd={onNextArticlePartLoad}
                 className={classNames(cls.ArticlesPage, {}, [className])}
+                scrollSaveEnabled
             >
                 <ArticlesViewSwitcher onViewItemClick={handleViewClick} view={view!} />
                 <ArticleList
