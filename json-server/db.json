@@ -98,7 +98,7 @@
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "12.01.2019",
       "userId": "1",
       "type": [
         "IT"
@@ -169,9 +169,9 @@
       "title": "TS news",
       "subtitle": "Что нового в TS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/2048px-Typescript.svg.png",
-      "views": 543,
+      "views": 541,
       "userId": "2",
-      "createdAt": "12.02.2023",
+      "createdAt": "22.01.2019",
       "type": [
         "IT"
       ],
@@ -241,11 +241,11 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1365,
+      "createdAt": "12.01.2020",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -265,11 +265,11 @@
       "title": "Python news",
       "subtitle": "What’s new in Python for 2023?",
       "img": "https://www.python.org/static/community_logos/python-logo-master-v3-TM.png",
-      "views": 857,
-      "createdAt": "15.03.2023",
+      "views": 8527,
+      "createdAt": "12.05.2021",
       "userId": "2",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -287,11 +287,13 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 22,
+      "createdAt": "12.03.2021",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -359,11 +361,11 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 2022,
+      "createdAt": "12.03.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -431,11 +433,12 @@
       "title": "TS news",
       "subtitle": "Что нового в TS за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/2048px-Typescript.svg.png",
-      "views": 543,
+      "views": 5435,
       "userId": "2",
-      "createdAt": "12.02.2023",
+      "createdAt": "12.06.2023",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -503,8 +506,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 999,
+      "createdAt": "22.06.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -527,8 +530,8 @@
       "title": "Python news",
       "subtitle": "What’s new in Python for 2023?",
       "img": "https://www.python.org/static/community_logos/python-logo-master-v3-TM.png",
-      "views": 857,
-      "createdAt": "15.03.2023",
+      "views": 8491,
+      "createdAt": "27.08.2023",
       "userId": "2",
       "type": [
         "IT"
@@ -549,8 +552,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 4957,
+      "createdAt": "12.09.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -623,7 +626,7 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/2048px-Typescript.svg.png",
       "views": 543,
       "userId": "2",
-      "createdAt": "12.02.2023",
+      "createdAt": "12.12.2023",
       "type": [
         "IT"
       ],
@@ -694,7 +697,7 @@
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "31.12.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -718,7 +721,7 @@
       "subtitle": "What’s new in Python for 2023?",
       "img": "https://www.python.org/static/community_logos/python-logo-master-v3-TM.png",
       "views": 857,
-      "createdAt": "15.03.2023",
+      "createdAt": "12.08.2022",
       "userId": "2",
       "type": [
         "IT"
@@ -740,7 +743,7 @@
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "15.02.2022",
       "userId": "1",
       "type": [
         "IT"

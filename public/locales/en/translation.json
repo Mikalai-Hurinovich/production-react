@@ -27,5 +27,13 @@
   "Комментарии отсутствуют": "No comments",
   "Отправить": "Send",
   "Введите текст комментария": "Add comment text",
-  "Произошла ошибка при загрузке статьи.": "An error occurred while loading."
+  "Произошла ошибка при загрузке статьи.": "An error occurred while loading.",
+  "Created": "Created",
+  "Title": "Title",
+  "Views": "Views",
+  "Newest": "Newest",
+  "Oldest": "Oldest",
+  "Search": "Search",
+  "Sort by:": "Sort by:",
+  "Ничего не найдено": "Nothing found"
 }

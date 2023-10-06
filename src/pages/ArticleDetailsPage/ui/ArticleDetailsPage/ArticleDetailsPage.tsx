@@ -15,12 +15,12 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addArticleComment } from '../../model/services/addArticleComment/addArticleComment';
-import cls from './ArticleDetailsPage.module.scss';
+import styles from './ArticleDetailsPage.module.scss';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/commentsSelectors';
 
 interface ArticleDetailsPageProps {
-    className?: string;
+  className?: string;
 }
 
 const reducersList: ReducersList = {
@@ -50,18 +50,18 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if (!id) {
         return (
-            <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                { t('Статья не найдена') }
+            <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+                {t('Статья не найдена')}
             </PageWrapper>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
-            <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <Button onClick={handleBackClick}>{ t('Назад') }</Button>
+            <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+                <Button onClick={handleBackClick}>{t('Назад')}</Button>
                 <ArticleDetails id={id} />
-                <Text className={cls.commentTitle} title={t('Комментарии')} />
+                <Text className={styles.commentTitle} title={t('Комментарии')} />
                 <AddCommentForm onSendComment={handleSendComment} />
                 <CommentList
                     isLoading={commentsIsLoading}

@@ -9,10 +9,10 @@ import {
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
+import styles from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
-    className?: string;
+  className?: string;
 }
 
 export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
@@ -42,38 +42,38 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch, profileData?.id]);
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <div className={classNames(styles.ProfilePageHeader, {}, [className])}>
             <Text title={t('Профиль')} />
-            { canEdit && (
+            {canEdit && (
                 readonly
                     ? (
                         <Button
-                            className={cls.editBtn}
+                            className={styles.editBtn}
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
                         >
-                            { t('Редактировать') }
+                            {t('Редактировать')}
                         </Button>
                     )
                     : (
                         <>
                             <Button
-                                className={cls.editBtn}
+                                className={styles.editBtn}
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={onCancelEdit}
                             >
-                                { t('Отменить') }
+                                {t('Отменить')}
                             </Button>
                             <Button
-                                className={cls.saveBtn}
+                                className={styles.saveBtn}
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onSave}
                             >
-                                { t('Сохранить') }
+                                {t('Сохранить')}
                             </Button>
                         </>
                     )
-            ) }
+            )}
         </div>
     );
 };

@@ -3,11 +3,11 @@ import { memo } from 'react';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { ArticleViewEnum } from 'entities/Article';
-import cls from './ArticleListItem.module.scss';
+import styles from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
-    className?: string;
-    view: ArticleViewEnum;
+  className?: string;
+  view: ArticleViewEnum;
 }
 
 export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps) => {
@@ -15,16 +15,16 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps
 
     if (view === ArticleViewEnum.PLATE) {
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                <Card className={cls.card}>
-                    <div className={cls.header}>
+            <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
+                <Card className={styles.card}>
+                    <div className={styles.header}>
                         <Skeleton border="50%" height={30} width={30} />
-                        <Skeleton width={150} height={16} className={cls.username} />
-                        <Skeleton width={150} height={16} className={cls.date} />
+                        <Skeleton width={150} height={16} className={styles.username} />
+                        <Skeleton width={150} height={16} className={styles.date} />
                     </div>
-                    <Skeleton width={250} height={24} className={cls.title} />
-                    <Skeleton height={200} className={cls.img} />
-                    <div className={cls.footer}>
+                    <Skeleton width={250} height={24} className={styles.title} />
+                    <Skeleton height={200} className={styles.img} />
+                    <div className={styles.footer}>
                         <Skeleton height={36} width={200} />
                     </div>
                 </Card>
@@ -33,15 +33,15 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps
     }
 
     return (
-        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <Card className={cls.card}>
-                <div className={cls.imageWrapper}>
-                    <Skeleton width={200} height={200} className={cls.img} />
+        <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
+            <Card className={styles.card}>
+                <div className={styles.imageWrapper}>
+                    <Skeleton width={200} height={200} className={styles.img} />
                 </div>
-                <div className={cls.infoWrapper}>
+                <div className={styles.infoWrapper}>
                     <Skeleton width={130} height={16} />
                 </div>
-                <Skeleton width={150} height={16} className={cls.title} />
+                <Skeleton width={150} height={16} className={styles.title} />
             </Card>
         </div>
     );

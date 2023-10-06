@@ -86,8 +86,8 @@ describe('ArticlesPageSlice.test', () => {
             view: ArticleViewEnum.LIST,
         };
         const res = articlesPageReducer(
-            state as ArticlesPageSchema,
-            fetchArticles.fulfilled(articles, '1', { page: 1 }),
+      state as ArticlesPageSchema,
+      fetchArticles.fulfilled(articles, '1', {}),
         );
 
         expect(res.isLoading).toEqual(false);
@@ -107,8 +107,8 @@ describe('ArticlesPageSlice.test', () => {
             view: ArticleViewEnum.LIST,
         };
         const res = articlesPageReducer(
-            state as ArticlesPageSchema,
-            fetchArticles.rejected(new Error(), '1', { page: 1 }),
+      state as ArticlesPageSchema,
+      fetchArticles.rejected(new Error(), '1', {}),
         );
         expect(res.isLoading).toEqual(false);
         expect(state.error).toEqual('Unexpected Error');
@@ -119,8 +119,8 @@ describe('ArticlesPageSlice.test', () => {
     test('test ArticlesPage pending', () => {
         const state: DeepPartial<ArticlesPageSchema> = { isLoading: true };
         const res = articlesPageReducer(
-            state as ArticlesPageSchema,
-            fetchArticles.pending,
+      state as ArticlesPageSchema,
+      fetchArticles.pending,
         );
         expect(res.isLoading).toEqual(true);
         expect(res.error).toEqual(undefined);

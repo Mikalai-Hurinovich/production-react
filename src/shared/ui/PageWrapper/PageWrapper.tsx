@@ -14,10 +14,10 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import styles from './PageWrapper.module.scss';
 
 interface PageWrapperProps {
-    children: ReactNode;
-    className?: string;
-    onScrollEnd?: () => void;
-    scrollSaveEnabled?: boolean;
+  children: ReactNode;
+  className?: string;
+  onScrollEnd?: () => void;
+  scrollSaveEnabled?: boolean;
 }
 
 export const PageWrapper = memo(({
@@ -52,8 +52,8 @@ export const PageWrapper = memo(({
             ref={wrapperRef}
             className={classNames(styles.pagewrapper, {}, [className])}
         >
-            { children }
-            <div ref={triggerRef} />
+            {children}
+            {onScrollEnd && <div ref={triggerRef} className={styles.scrollTrigger} />}
         </section>
     );
 });

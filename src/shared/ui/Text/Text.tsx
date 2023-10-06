@@ -1,30 +1,30 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { DetailedHTMLProps, HTMLAttributes, memo } from 'react';
-import cls from './Text.module.scss';
+import styles from './Text.module.scss';
 
 export enum TextTheme {
-    PRIMARY = 'primary',
-    ERROR = 'error',
+  PRIMARY = 'primary',
+  ERROR = 'error',
 }
 
 export enum TextAlign {
-    RIGHT = 'right',
-    LEFT = 'left',
-    CENTER = 'center',
+  RIGHT = 'right',
+  LEFT = 'left',
+  CENTER = 'center',
 }
 
 export enum TextSize {
-    M = 'size_m',
-    L = 'size_l',
+  M = 'size_m',
+  L = 'size_l',
 }
 
 interface TextProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    className?: string;
-    title?: string;
-    text?: string;
-    theme?: TextTheme;
-    align?: TextAlign;
-    size?: TextSize;
+  className?: string;
+  title?: string;
+  text?: string;
+  theme?: TextTheme;
+  align?: TextAlign;
+  size?: TextSize;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -38,15 +38,15 @@ export const Text = memo((props: TextProps) => {
     } = props;
 
     const mods: Mods = {
-        [cls[theme]]: true,
-        [cls[align]]: true,
-        [cls[size]]: true,
+        [styles[theme]]: true,
+        [styles[align]]: true,
+        [styles[size]]: true,
     };
 
     return (
-        <div className={classNames(cls.Text, mods, [className])}>
-            { title && <p className={cls.title}>{ title }</p> }
-            { text && <p className={cls.text}>{ text }</p> }
+        <div className={classNames(styles.Text, mods, [className])}>
+            {title && <p className={styles.title}>{title}</p>}
+            {text && <p className={styles.text}>{text}</p>}
         </div>
     );
 });

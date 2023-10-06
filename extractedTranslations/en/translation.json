@@ -1,11 +1,19 @@
 {
+  "Create date": "Create date",
+  "Created": "Created",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam": {
       "": ""
     }
   },
+  "Newest": "Newest",
   "No comments": "",
+  "Oldest": "Oldest",
   "PROFILE PAGE": "",
+  "Search": "Search",
+  "Title": "Title",
+  "View": "View",
+  "Views": "Views",
   "Yfpfl": "Yfpfl",
   "decrement": "decrement",
   "increment": "increment",

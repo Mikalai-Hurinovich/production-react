@@ -1,22 +1,22 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { ChangeEvent, memo, useMemo } from 'react';
-import cls from './Select.module.scss';
+import styles from './Select.module.scss';
 
-export interface SelectOption {
-    value: string;
-    content: string;
+export interface SelectOption<T extends string> {
+  value: T;
+  content: string;
 }
 
-interface SelectProps {
-    className?: string;
-    label?: string;
-    options?: SelectOption[];
-    value?: string;
-    onChange?: (value: string) => void;
-    readonly?: boolean;
+interface SelectProps<T extends string> {
+  className?: string;
+  label?: string;
+  options?: SelectOption<T>[];
+  value?: T;
+  onChange?: (value: T) => void;
+  readonly?: boolean;
 }
 
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
         className,
         label,
@@ -28,13 +28,13 @@ export const Select = memo((props: SelectProps) => {
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         if (onChange) {
-            onChange(e.target.value);
+            onChange(e.target.value as T);
         }
     };
 
     const optionsList = useMemo(() => options?.map((opt) => (
         <option
-            className={cls.option}
+            className={styles.option}
             value={opt.value}
             key={opt.value}
         >
@@ -45,15 +45,15 @@ export const Select = memo((props: SelectProps) => {
     const mods: Mods = {};
 
     return (
-        <div className={classNames(cls.Wrapper, mods, [className])}>
+        <div className={classNames(styles.Wrapper, mods, [className])}>
             {label && (
-                <span className={cls.label}>
+                <span className={styles.label}>
                     {`${label}>`}
                 </span>
             )}
             <select
                 disabled={readonly}
-                className={cls.select}
+                className={styles.select}
                 value={value}
                 onChange={onChangeHandler}
             >
@@ -61,4 +61,4 @@ export const Select = memo((props: SelectProps) => {
             </select>
         </div>
     );
-});
+};

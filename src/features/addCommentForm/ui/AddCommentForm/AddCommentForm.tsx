@@ -8,11 +8,11 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
-import cls from './AddCommentForm.module.scss';
+import styles from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
-    className?: string;
-    onSendComment: (text: string) => void;
+  className?: string;
+  onSendComment: (text: string) => void;
 }
 
 const reducers: ReducersList = {
@@ -37,15 +37,15 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddCommentForm, {}, [className])}>
+            <div className={classNames(styles.AddCommentForm, {}, [className])}>
                 <Input
-                    className={cls.input}
+                    className={styles.input}
                     placeholder={t('Введите текст комментария')}
                     value={text}
                     onChange={onCommentTextChange}
                 />
                 <Button onClick={onSendHandler}>
-                    { t('Отправить') }
+                    {t('Отправить')}
                 </Button>
             </div>
         </DynamicModuleLoader>

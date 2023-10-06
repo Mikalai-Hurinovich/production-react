@@ -4,14 +4,14 @@ import React, {
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
-import cls from './Modal.module.scss';
+import styles from './Modal.module.scss';
 
 interface ModalProps {
-    className?: string;
-    children?: ReactNode;
-    isOpen?: boolean;
-    onClose?: () => void;
-    lazy?: boolean;
+  className?: string;
+  children?: ReactNode;
+  isOpen?: boolean;
+  onClose?: () => void;
+  lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300;
@@ -68,8 +68,8 @@ export const Modal = (props: ModalProps) => {
     }, [isOpen, onKeyDown]);
 
     const mods: Mods = {
-        [cls.opened]: isOpen,
-        [cls.isClosing]: isClosing,
+        [styles.opened]: isOpen,
+        [styles.isClosing]: isClosing,
     };
 
     if (lazy && !isMounted) {
@@ -78,13 +78,13 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
-                <div className={cls.overlay} onClick={closeHandler}>
+            <div className={classNames(styles.Modal, mods, [className, theme, 'app_modal'])}>
+                <div className={styles.overlay} onClick={closeHandler}>
                     <div
-                        className={cls.content}
+                        className={styles.content}
                         onClick={onContentClick}
                     >
-                        { children }
+                        {children}
                     </div>
                 </div>
             </div>

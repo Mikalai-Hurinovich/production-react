@@ -7,10 +7,10 @@ import { ArticleViewEnum, IArticle } from '../../model/types/article';
 import styles from './ArticleList.module.scss';
 
 interface ArticleListProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    articles: IArticle[];
-    className?: string;
-    isLoading?: boolean;
-    view?: ArticleViewEnum;
+  articles: IArticle[];
+  className?: string;
+  isLoading?: boolean;
+  view?: ArticleViewEnum;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -26,18 +26,26 @@ export const ArticleList = memo((props: ArticleListProps) => {
         return <ArticleListItem className={styles.card} key={article.id} article={article} view={view} />;
     }
 
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(styles.articleList, {}, [className])}>
+                {t('Ничего не найдено')}
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(styles.articleList, {}, [className])}>
-            { articles.length
+            {articles.length
                 ? articles.map(renderArticle)
-                : null }
-            { isLoading && (
+                : null}
+            {isLoading && (
                 <div className={classNames(styles.articleList, {}, [className])}>
-                    { new Array(view === ArticleViewEnum.PLATE ? 4 : 6)
+                    {new Array(view === ArticleViewEnum.PLATE ? 4 : 6)
                         .fill(<ArticleListItemSkeleton view={view} />)
-                        .map(((a, i) => ({ ...a, id: i, key: i }))) }
+                        .map(((a, i) => ({ ...a, id: i, key: i })))}
                 </div>
-            ) }
+            )}
         </div>
     );
 });

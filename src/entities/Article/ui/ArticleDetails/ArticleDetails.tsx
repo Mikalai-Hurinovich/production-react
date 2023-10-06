@@ -15,7 +15,7 @@ import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBloc
 import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import cls from './ArticleDetails.module.scss';
+import styles from './ArticleDetails.module.scss';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -24,8 +24,8 @@ import {
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 
 interface ArticleDetailsProps {
-    className?: string;
-    id: string;
+  className?: string;
+  id: string;
 }
 
 const reducers: ReducersList = {
@@ -47,7 +47,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 <ArticleCodeBlockComponent
                     key={block.id}
                     block={block}
-                    className={cls.block}
+                    className={styles.block}
                 />
             );
         case ArticleBlockType.IMAGE:
@@ -55,14 +55,14 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 <ArticleImageBlockComponent
                     key={block.id}
                     block={block}
-                    className={cls.block}
+                    className={styles.block}
                 />
             );
         case ArticleBlockType.TEXT:
             return (
                 <ArticleTextBlockComponent
                     key={block.id}
-                    className={cls.block}
+                    className={styles.block}
                     block={block}
                 />
             );
@@ -82,11 +82,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <>
-                <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
-                <Skeleton className={cls.title} width={300} height={32} />
-                <Skeleton className={cls.skeleton} width={600} height={24} />
-                <Skeleton className={cls.skeleton} width="100%" height={200} />
-                <Skeleton className={cls.skeleton} width="100%" height={200} />
+                <Skeleton className={styles.avatar} width={200} height={200} border="50%" />
+                <Skeleton className={styles.title} width={300} height={32} />
+                <Skeleton className={styles.skeleton} width={600} height={24} />
+                <Skeleton className={styles.skeleton} width="100%" height={200} />
+                <Skeleton className={styles.skeleton} width="100%" height={200} />
             </>
         );
     } else if (error) {
@@ -99,25 +99,25 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <div className={styles.avatarWrapper}>
                     <Avatar
                         size={200}
                         src={article?.img}
-                        className={cls.avatar}
+                        className={styles.avatar}
                     />
                 </div>
                 <Text
-                    className={cls.title}
+                    className={styles.title}
                     title={article?.title}
                     text={article?.subtitle}
                     size={TextSize.L}
                 />
-                <div className={cls.articleInfo}>
-                    <Icon className={cls.icon} Svg={EyeIcon} />
+                <div className={styles.articleInfo}>
+                    <Icon className={styles.icon} Svg={EyeIcon} />
                     <Text text={String(article?.views)} />
                 </div>
-                <div className={cls.articleInfo}>
-                    <Icon className={cls.icon} Svg={CalendarIcon} />
+                <div className={styles.articleInfo}>
+                    <Icon className={styles.icon} Svg={CalendarIcon} />
                     <Text text={article?.createdAt} />
                 </div>
                 {article?.blocks.map(renderBlock)}
@@ -127,7 +127,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
+            <div className={classNames(styles.ArticleDetails, {}, [className])}>
                 {content}
             </div>
         </DynamicModuleLoader>

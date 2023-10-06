@@ -2,4 +2,8 @@
     padding: 15px;
     border-radius: 12px;
     background: var(--card-bg);
+
+    &.OUTLINED {
+        border: 1px solid var(--primary-color);
+    }
 }

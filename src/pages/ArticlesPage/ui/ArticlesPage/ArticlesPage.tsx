@@ -1,29 +1,30 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleList, ArticleViewEnum } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher/ui/ArticlesViewSwitcher';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
+import { ArticleSortFieldEnum, articlesSortActions, articlesSortReducer } from 'features/articlesSort';
+import { ArticlesFilters } from 'entities/Article/ui/ArticlesFilters/ArticlesFilters';
+import { useSearchParams } from 'react-router-dom';
+import { SortOrder } from 'shared/types/sortOrder';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticles/fetchNextArticlesPage';
-import {
-    getArticlesPageInited,
-    getArticlesPageIsLoading,
-    getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors';
+import { getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView }
+    from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
-import cls from './ArticlesPage.module.scss';
+import styles from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
-    className?: string;
+  className?: string;
 }
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
+    articlesSort: articlesSortReducer,
 };
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
@@ -34,31 +35,42 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const view = useSelector(getArticlesPageView);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const isInited = useSelector(getArticlesPageInited);
-    const handleViewClick = useCallback((currentView: ArticleViewEnum) => {
-        dispatch(articlesPageActions.setView(currentView));
-    }, [dispatch]);
-
+    const [searchParams] = useSearchParams();
     const onNextArticlePartLoad = useCallback(() => {
         dispatch(fetchNextArticlesPage());
-        // eslint-disable-next-line
-    }, [ dispatch, isLoading ]);
-
-    useInitialEffect(() => {
+    // eslint-disable-next-line
+  }, [ dispatch, isLoading ]);
+    const initArticlesData = () => {
         if (!isInited) {
             dispatch(articlesPageActions.initPage());
-            dispatch(fetchArticles({
-                page: 1,
-            }));
+
+            const orderValue = searchParams.get('order');
+            const searchValue = searchParams.get('search');
+            const sortValue = searchParams.get('sort');
+            if (orderValue) {
+                dispatch(articlesSortActions.setOrder(orderValue as SortOrder));
+            }
+            if (searchValue) {
+                dispatch(articlesSortActions.setSearch(searchValue));
+            }
+            if (sortValue) {
+                dispatch(articlesSortActions.setSortField(sortValue as ArticleSortFieldEnum));
+            }
+            dispatch(fetchArticles({}));
         }
+    };
+    useInitialEffect(() => {
+        initArticlesData();
     }, []);
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <PageWrapper
                 onScrollEnd={onNextArticlePartLoad}
-                className={classNames(cls.ArticlesPage, {}, [className])}
+                className={classNames(styles.ArticlesPage, {}, [className])}
                 scrollSaveEnabled
             >
-                <ArticlesViewSwitcher onViewItemClick={handleViewClick} view={view!} />
+                <ArticlesFilters />
                 <ArticleList
                     articles={articles}
                     view={view}
