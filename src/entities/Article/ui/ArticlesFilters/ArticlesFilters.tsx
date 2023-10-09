@@ -45,8 +45,8 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = ({ className }) => {
     const articlesTypes = useMemo(() => Object.keys(ArticleType)
         .map((type) => ({
             value: type as ArticleType,
-            content: type,
-        })), []);
+            content: t(type),
+        })), [t]);
 
     const onArticleSortFieldChange = useCallback((field) => {
         dispatch(articlesSortActions.setSortField(field));

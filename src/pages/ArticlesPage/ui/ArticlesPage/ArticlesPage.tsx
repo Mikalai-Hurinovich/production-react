@@ -11,6 +11,7 @@ import { ArticleSortFieldEnum, articlesSortActions, articlesSortReducer } from '
 import { ArticlesFilters } from 'entities/Article/ui/ArticlesFilters/ArticlesFilters';
 import { useSearchParams } from 'react-router-dom';
 import { SortOrder } from 'shared/types/sortOrder';
+import { ArticleType } from 'entities/Article/model/types/article';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticles/fetchNextArticlesPage';
 import { getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView }
     from '../../model/selectors/articlesPageSelectors';
@@ -47,6 +48,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             const orderValue = searchParams.get('order');
             const searchValue = searchParams.get('search');
             const sortValue = searchParams.get('sort');
+            const type = searchParams.get('type') as ArticleType;
             if (orderValue) {
                 dispatch(articlesSortActions.setOrder(orderValue as SortOrder));
             }
@@ -55,6 +57,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             }
             if (sortValue) {
                 dispatch(articlesSortActions.setSortField(sortValue as ArticleSortFieldEnum));
+            }
+            if (type) {
+                dispatch(articlesSortActions.setType(type));
             }
             dispatch(fetchArticles({}));
         }

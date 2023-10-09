@@ -1,4 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes, memo } from 'react';
+import {
+    DetailedHTMLProps, HTMLAttributeAnchorTarget, HTMLAttributes, memo,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from 'entities/Article';
@@ -10,6 +12,7 @@ interface ArticleListProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
   articles: IArticle[];
   className?: string;
   isLoading?: boolean;
+  target?: HTMLAttributeAnchorTarget;
   view?: ArticleViewEnum;
 }
 
@@ -19,11 +22,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
         view = ArticleViewEnum.PLATE,
         isLoading,
         articles,
+        target = '_self',
     } = props;
     const { t } = useTranslation();
 
     function renderArticle(article: IArticle) {
-        return <ArticleListItem className={styles.card} key={article.id} article={article} view={view} />;
+        return <ArticleListItem target={target} className={styles.card} key={article.id} article={article} view={view} />;
     }
 
     if (!isLoading && !articles.length) {

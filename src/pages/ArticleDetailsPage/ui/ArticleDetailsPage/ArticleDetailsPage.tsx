@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList, ArticleViewEnum } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
@@ -13,10 +13,14 @@ import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
+import { getArticleRecommendations } from 'pages/ArticleDetailsPage/model/slices/articleDetailsRecomendationsSlice';
+import { getArticleDetailsRecommendationsIsLoading } from 'pages/ArticleDetailsPage';
+import { fetchArticleRecommendations } from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../../model/slices';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addArticleComment } from '../../model/services/addArticleComment/addArticleComment';
 import styles from './ArticleDetailsPage.module.scss';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/commentsSelectors';
 
 interface ArticleDetailsPageProps {
@@ -24,7 +28,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducersList: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
@@ -35,9 +39,15 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const navigate = useNavigate();
+    const recommendations = useSelector(getArticleRecommendations.selectAll);
+    const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
+    }, [dispatch]);
+
+    useInitialEffect(() => {
+        dispatch(fetchArticleRecommendations());
     }, [dispatch]);
 
     const handleSendComment = useCallback((text) => {
@@ -61,7 +71,15 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 <Button onClick={handleBackClick}>{t('Назад')}</Button>
                 <ArticleDetails id={id} />
-                <Text className={styles.commentTitle} title={t('Комментарии')} />
+                <Text title={t('Рекоммендации')} className={styles.recommendationsTitle} />
+                <ArticleList
+                    articles={recommendations}
+                    isLoading={recommendationsIsLoading}
+                    view={ArticleViewEnum.LIST}
+                    className={styles.recommendationsList}
+                    target="_blank"
+                />
+                <Text className={styles.commentsTitle} title={t('Комментарии')} />
                 <AddCommentForm onSendComment={handleSendComment} />
                 <CommentList
                     isLoading={commentsIsLoading}

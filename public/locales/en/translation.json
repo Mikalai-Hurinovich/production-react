@@ -33,7 +33,10 @@
   "Views": "Views",
   "Newest": "Newest",
   "Oldest": "Oldest",
-  "Search": "Search",
+  "IT": "IT",
+  "SCIENCE": "SCIENCE",
+  "ECONOMICS": "ECONOMICS",
+  "ALL": "ALL",
   "Sort by:": "Sort by:",
   "Ничего не найдено": "Nothing found"
 }

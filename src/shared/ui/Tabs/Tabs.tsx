@@ -1,14 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ReactNode, useCallback } from 'react';
+import React, { ReactNode, useCallback } from 'react';
 import { Card, CardTheme } from 'shared/ui/Card/Card';
 import styles from './Tabs.module.scss';
 
-export interface TabItem<T extends string> {
+export interface TabItem<T> {
   value: T;
   content: ReactNode;
 }
 
-interface TabsProps<T extends string> {
+interface TabsProps<T> {
   className?: string;
   tabs: TabItem<T>[];
   value: string;
