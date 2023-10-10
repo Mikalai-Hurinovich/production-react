@@ -1,27 +1,28 @@
 .ArticleDetailsPage {
-  min-height: 100%;
+    min-height: 100%;
 }
 
-.commentsTitle, .recommendationsTitle {
-  margin: 20px 0;
+.commentsTitle,
+.recommendationsTitle {
+    margin: 20px 0;
 }
 
 .recommendationsList {
-  flex-flow: row nowrap;
-  overflow-x: auto;
-  padding: 10px;
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    padding: 10px;
 
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
 
-  &::-webkit-scrollbar-track {
-    background: var(--card-bg);
-  }
+    &::-webkit-scrollbar-track {
+        background: var(--card-bg);
+    }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--card-bg);
-    border-radius: 20px;
-    border: 3px solid var(--primary-color);
-  }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--card-bg);
+        border-radius: 20px;
+        border: 3px solid var(--primary-color);
+    }
 }
