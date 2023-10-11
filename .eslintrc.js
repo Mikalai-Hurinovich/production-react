@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'featured-slice-design-path',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -58,6 +59,7 @@ module.exports = {
         'no-undef': 'off',
         'linebreak-style': 0,
         'no-tabs': 'off',
+        'featured-slice-design-path/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

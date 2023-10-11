@@ -3,7 +3,7 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleListItemSkeleton } from 'entities/Article';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleViewEnum, IArticle } from '../../model/types/article';
 import styles from './ArticleList.module.scss';

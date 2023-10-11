@@ -7,7 +7,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types/sortOrder';
 import { Card } from 'shared/ui/Card/Card';
 import { useSelector } from 'react-redux';
-import { getArticlesSortField, getArticlesSortOrder } from 'features/articlesSort';
+import { getArticlesSortField, getArticlesSortOrder } from '../../model/selectors/articlesSortSelectors';
 import { ArticleSortFieldEnum } from '../../model/types/articlesSortField';
 import styles from './ArticlesSort.module.scss';
 

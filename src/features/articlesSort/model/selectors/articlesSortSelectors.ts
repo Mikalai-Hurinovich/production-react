@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleSortFieldEnum } from 'features/articlesSort';
 import { ArticleType } from 'entities/Article/model/types/article';
+import { ArticleSortFieldEnum } from '../types/articlesSortField';
 
 export const getArticlesSortIsLoading = (state: StateSchema) => state.articlesSort?.isLoading;
 export const getArticlesSortField = (state: StateSchema) => state.articlesSort?.sort ?? ArticleSortFieldEnum.CREATED;

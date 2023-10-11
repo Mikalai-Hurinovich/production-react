@@ -2,7 +2,7 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
-} from 'pages/ArticleDetailsPage/model/selectors/commentsSelectors';
+} from './commentsSelectors';
 
 describe('commentsSelectors.test', () => {
     test('should return comments loading state', () => {
