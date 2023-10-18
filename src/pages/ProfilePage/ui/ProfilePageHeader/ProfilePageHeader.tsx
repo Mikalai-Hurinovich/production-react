@@ -12,7 +12,7 @@ import { getUserAuthData } from 'entities/User';
 import styles from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
-  className?: string;
+    className?: string;
 }
 
 export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
@@ -44,15 +44,16 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     return (
         <div className={classNames(styles.ProfilePageHeader, {}, [className])}>
             <Text title={t('Профиль')} />
-            {canEdit && (
+            { canEdit && (
                 readonly
                     ? (
                         <Button
+                            data-testid="edit-button"
                             className={styles.editBtn}
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
                         >
-                            {t('Редактировать')}
+                            { t('Редактировать') }
                         </Button>
                     )
                     : (
@@ -62,18 +63,19 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={onCancelEdit}
                             >
-                                {t('Отменить')}
+                                { t('Отменить') }
                             </Button>
                             <Button
+                                data-testid="save-button"
                                 className={styles.saveBtn}
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onSave}
                             >
-                                {t('Сохранить')}
+                                { t('Сохранить') }
                             </Button>
                         </>
                     )
-            )}
+            ) }
         </div>
     );
 };
