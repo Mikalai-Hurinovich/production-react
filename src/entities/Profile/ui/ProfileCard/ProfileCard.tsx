@@ -11,20 +11,20 @@ import { CountrySelect } from 'entities/Country';
 import styles from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
-interface ProfileCardProps {
-  className?: string;
-  data?: Profile;
-  error?: string;
-  isLoading?: boolean;
-  readonly?: boolean;
-  onChangeLastname?: (value?: string) => void;
-  onChangeFirstname?: (value?: string) => void;
-  onChangeCity?: (value?: string) => void;
-  onChangeAge?: (value?: string) => void;
-  onChangeUsername?: (value?: string) => void;
-  onChangeAvatar?: (value?: string) => void;
-  onChangeCurrency?: (currency: Currency) => void;
-  onChangeCountry?: (country: Country) => void;
+export interface ProfileCardProps {
+    className?: string;
+    data?: Profile;
+    error?: string;
+    isLoading?: boolean;
+    readonly?: boolean;
+    onChangeLastname?: (value?: string) => void;
+    onChangeFirstname?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (currency: Currency) => void;
+    onChangeCountry?: (country: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -71,14 +71,15 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <div className={classNames(styles.ProfileCard, mods, [className])}>
+        <div data-testid="ProfileCard" className={classNames(styles.ProfileCard, mods, [className])}>
             <div className={styles.data}>
-                {data?.avatar && (
+                { data?.avatar && (
                     <div className={styles.avatarWrapper}>
                         <Avatar src={data?.avatar} />
                     </div>
-                )}
+                ) }
                 <Input
+                    data-testid="firstname"
                     value={data?.first}
                     placeholder={t('Ваше имя')}
                     className={styles.input}
@@ -86,6 +87,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                 />
                 <Input
+                    data-testid="lastname"
                     value={data?.lastname}
                     placeholder={t('Ваша фамилия')}
                     className={styles.input}
@@ -93,6 +95,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                 />
                 <Input
+                    data-testid="age"
                     value={data?.age}
                     placeholder={t('Ваш возраст')}
                     className={styles.input}
@@ -100,6 +103,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                 />
                 <Input
+                    data-testid="city"
                     value={data?.city}
                     placeholder={t('Город')}
                     className={styles.input}
@@ -107,6 +111,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                 />
                 <Input
+                    data-testid="username"
                     value={data?.username}
                     placeholder={t('Введите имя пользователя')}
                     className={styles.input}
@@ -114,6 +119,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                 />
                 <Input
+                    data-testid="avatar"
                     value={data?.avatar}
                     placeholder={t('Введите ссылку на аватар')}
                     className={styles.input}
@@ -121,12 +127,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                 />
                 <CurrencySelect
+                    data-testid="currency"
                     className={styles.input}
                     value={data?.currency}
                     onChange={onChangeCurrency}
                     readonly={readonly}
                 />
                 <CountrySelect
+                    data-testid="country"
                     className={styles.input}
                     value={data?.country}
                     onChange={onChangeCountry}
