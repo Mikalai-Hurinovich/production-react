@@ -6,6 +6,8 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserInited, userActions } from 'entities/User';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
     const { theme } = useTheme();
@@ -22,9 +24,10 @@ function App() {
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
-                    {inited && <AppRouter />}
+                    { inited && <AppRouter /> }
                 </div>
             </Suspense>
+            <ToastContainer />
         </div>
     );
 }

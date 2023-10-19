@@ -5,6 +5,12 @@ export {
 export {
     getUserInited,
 } from './model/selectors/getUserInited/getUserInited';
+export {
+    getUserRoles,
+    isAdmin,
+    isManager,
+    isUser,
+} from './model/selectors/getUserRoles/getUserRoles';
 
 export {
     userReducer,
