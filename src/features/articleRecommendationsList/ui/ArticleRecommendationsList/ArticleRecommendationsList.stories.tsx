@@ -5,7 +5,7 @@ import { IArticle } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import withMock from 'storybook-addon-mock';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 const article: IArticle = {
     id: '1',
@@ -48,50 +48,36 @@ const article: IArticle = {
     ],
 };
 export default {
-    title: 'pages/ArticleDetailsPage',
-    component: ArticleDetailsPage,
-    decorators: [withMock],
+    title: 'features/ArticleRecommendationsList',
+    component: ArticleRecommendationsList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [withMock],
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/articles?_limit=4`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    { ...article, id: '1' },
+                    { ...article, id: '2' },
+                    { ...article, id: '3' },
+                    { ...article, id: '4' },
+                ],
+            },
+        ],
+    },
 
-} as ComponentMeta<typeof ArticleDetailsPage>;
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
-    <ArticleDetailsPage {...args} />
+} as ComponentMeta<typeof ArticleRecommendationsList>;
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
+    <ArticleRecommendationsList {...args} />
 );
 
 export const Normal = Template.bind({});
-Normal.args = {
-    customId: '1',
-};
 Normal.decorators = [StoreDecorator({
     articleDetails: {
         data: article,
     },
 })];
-Normal.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/articles?_limit=4`,
-            method: 'GET',
-            status: 200,
-            response: [
-                { ...article, id: '1' },
-                { ...article, id: '2' },
-                { ...article, id: '3' },
-                { ...article, id: '4' },
-            ],
-        },
-        {
-            url: `${__API__}/comments?articleId=1&_expand=user`,
-            method: 'GET',
-            status: 200,
-            response: [
-                { ...article, id: '1' },
-                { ...article, id: '2' },
-                { ...article, id: '3' },
-                { ...article, id: '4' },
-            ],
-        },
-    ],
-};

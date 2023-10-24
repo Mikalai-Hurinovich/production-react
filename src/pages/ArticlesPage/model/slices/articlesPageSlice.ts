@@ -1,4 +1,4 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { ARTICLES_PAGE_VIEW } from 'shared/const/localstorage';
 import { ArticleViewEnum, IArticle } from '../../../../entities/Article';

@@ -1,5 +1,5 @@
 import React, {
-    DetailedHTMLProps, HTMLAttributeAnchorTarget, HTMLAttributes, memo, useCallback,
+    DetailedHTMLProps, HTMLAttributeAnchorTarget, HTMLAttributes, memo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -19,10 +19,10 @@ import EyeIcon from '../../../../shared/assets/icons/eye-20-20.svg';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleListItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  article: IArticle;
-  className?: string;
-  view: ArticleViewEnum;
-  target: HTMLAttributeAnchorTarget;
+    article: IArticle;
+    className?: string;
+    view: ArticleViewEnum;
+    target: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -54,18 +54,18 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <Text text={article.createdAt} className={styles.date} />
                     </div>
                     <Text title={article.title} className={styles.title} />
-                    {types}
+                    { types }
                     <img src={article.img} className={styles.img} alt={article.title} />
-                    {textBlock && (
+                    { textBlock && (
                         <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
-                    )}
+                    ) }
                     <div className={styles.footer}>
                         <AppLink target={target} to={RoutePath.article_details + article.id}>
                             <Button theme={ButtonTheme.OUTLINE}>
-                                {t('Читать далее...')}
+                                { t('Читать далее...') }
                             </Button>
                         </AppLink>
-                        {views}
+                        { views }
                     </div>
                 </Card>
             </div>
@@ -81,8 +81,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <Text text={article.createdAt} className={styles.date} />
                     </div>
                     <div className={styles.infoWrapper}>
-                        {types}
-                        {views}
+                        { types }
+                        { views }
                     </div>
                     <Text text={article.title} className={styles.title} />
                 </Card>

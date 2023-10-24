@@ -8,8 +8,8 @@ import { SidebarItemType } from '../../model/types/sidebar';
 import styles from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-  item: SidebarItemType;
-  collapsed: boolean;
+    item: SidebarItemType;
+    collapsed: boolean;
 }
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
@@ -28,7 +28,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
         >
             <item.Icon className={styles.icon} />
             <span className={styles.link}>
-                {t(item.text)}
+                { t(item.text) }
             </span>
         </AppLink>
     );

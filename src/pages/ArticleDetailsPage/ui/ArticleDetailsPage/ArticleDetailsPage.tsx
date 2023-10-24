@@ -14,6 +14,7 @@ import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
     className?: string;
+    customId?: string;
 }
 
 const reducersList: ReducersList = {
@@ -21,17 +22,16 @@ const reducersList: ReducersList = {
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
-    const { className } = props;
+    const { className, customId } = props;
     const { t } = useTranslation('article');
-    const { id } = useParams<{ id: string }>();
-
+    const params = useParams<{ id: string }>();
     const navigate = useNavigate();
-
+    const articleId = params?.id ?? customId;
     const handleBackClick = useCallback(() => {
         navigate(RoutePath.articles);
     }, [navigate]);
 
-    if (!id) {
+    if (!articleId) {
         return (
             <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 { t('Статья не найдена') }
@@ -43,9 +43,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
             <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 <Button onClick={handleBackClick}>{ t('Назад') }</Button>
-                <ArticleDetails id={id} />
+                <ArticleDetails id={articleId} />
                 <ArticleRecommendationsList />
-                <ArticleCommentsList articleId={id} />
+                <ArticleCommentsList articleId={articleId} />
             </PageWrapper>
         </DynamicModuleLoader>
     );

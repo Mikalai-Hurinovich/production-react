@@ -2,7 +2,7 @@ export {
     ArticleDetailsPageAsync as ArticleDetailsPage,
 } from './ui/ArticleDetailsPage/ArticleDetailsPage.async';
 
-export { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
+export type { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommentsSchema';
 export { addArticleComment } from 'pages/ArticleDetailsPage/model/services/addArticleComment/addArticleComment';
 export {
     articleDetailsCommentsActions, articleDetailsCommentsReducer,
@@ -14,5 +14,5 @@ export {
     getArticleCommentsError, getArticleCommentsIsLoading,
 } from './model/selectors/commentsSelectors';
 
-export { ArticleDetailsRecommendationsSchema } from './model/types/ArticleDetailsRecommendationsSchema';
-export { ArticleDetailsPageSchema } from './model/types/articleDetailsPageSchema';
+export type { ArticleDetailsRecommendationsSchema } from './model/types/ArticleDetailsRecommendationsSchema';
+export type { ArticleDetailsPageSchema } from './model/types/articleDetailsPageSchema';

@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { IArticle, ArticleBlockType, ArticleType } from '../../types/article';
+import { ArticleBlockType, ArticleType, IArticle } from '../../types/article';
 
 import { fetchArticleById } from './fetchArticleById';
 
@@ -11,11 +11,11 @@ const article: IArticle = {
     views: 1022,
     createdAt: '26.02.2022',
     user:
-    {
-        id: '1',
-        avatar: 'https://imgv3.fotor.com/images/gallery/american-anime-stule-naked-man-avatar.jpg',
-        username: 'Mikola',
-    },
+        {
+            id: '1',
+            avatar: 'https://imgv3.fotor.com/images/gallery/american-anime-stule-naked-man-avatar.jpg',
+            username: 'Mikola',
+        },
     type: [ArticleType.IT],
     blocks: [
         {

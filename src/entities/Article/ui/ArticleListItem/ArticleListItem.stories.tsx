@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ArticleListItem } from './ArticleListItem';
 import { ArticleViewEnum, IArticle } from '../../model/types/article';
+import { ArticleListItem } from './ArticleListItem';
 
 export default {
     title: 'entities/Article/ArticleListItem',
@@ -23,7 +23,7 @@ const article = {
     createdAt: '26.02.2022',
     user: {
         id: '1',
-        username: 'Ulbi tv',
+        username: 'Mikola',
         avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
     },
     type: [

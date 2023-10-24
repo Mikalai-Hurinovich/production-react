@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { IArticle, ArticleBlockType, ArticleType } from '../../model/types/article';
+import { ArticleBlockType, ArticleType, IArticle } from '../../model/types/article';
 
 import { ArticleDetails } from './ArticleDetails';
 
@@ -23,11 +23,11 @@ const article: IArticle = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     user:
-    {
-        id: '1',
-        avatar: 'https://imgv3.fotor.com/images/gallery/american-anime-stule-naked-man-avatar.jpg',
-        username: 'Mikola',
-    },
+        {
+            id: '1',
+            avatar: 'https://imgv3.fotor.com/images/gallery/american-anime-stule-naked-man-avatar.jpg',
+            username: 'Mikola',
+        },
     createdAt: '26.02.2022',
     type: [ArticleType.IT],
     blocks: [

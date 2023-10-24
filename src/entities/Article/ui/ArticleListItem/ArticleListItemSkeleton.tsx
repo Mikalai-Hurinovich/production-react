@@ -6,8 +6,8 @@ import { ArticleViewEnum } from '../../model/types/article';
 import styles from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
-  className?: string;
-  view: ArticleViewEnum;
+    className?: string;
+    view: ArticleViewEnum;
 }
 
 export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps) => {

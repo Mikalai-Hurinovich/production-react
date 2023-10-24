@@ -3,11 +3,11 @@ import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleSortFieldEnum } from './articlesSortField';
 
 export interface ArticlesSortSchema {
-  isLoading: boolean,
-  error?: string,
+    isLoading: boolean,
+    error?: string,
 
-  order: SortOrder;
-  search: string;
-  sort: ArticleSortFieldEnum;
-  type: ArticleType;
+    order: SortOrder;
+    search: string;
+    sort: ArticleSortFieldEnum;
+    type: ArticleType;
 }

@@ -1,13 +1,16 @@
-import { BuildOptions } from '../types/config';
+interface buildBabelLoaderProps {
+    isDev?: boolean;
+    isTsx?: boolean;
+}
 
-export function buildBabelLoader({ isDev }: BuildOptions) {
+export function buildBabelLoader({ isDev, isTsx }: buildBabelLoaderProps) {
     return {
-        test: /\.(js|jsx|tsx)$/,
+        test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
             options: {
-                presets: ['@babel/preset-env'],
+                presets: ['@babel/preset-env', '@babel/preset-typescript'],
                 plugins: [
                     [
                         'i18next-extract',
@@ -16,9 +19,17 @@ export function buildBabelLoader({ isDev }: BuildOptions) {
                             keyAsDefaultValue: true,
                         },
                     ],
+                    [
+                        '@babel/plugin-transform-typescript',
+                        { isTsx },
+                    ],
+                    '@babel/plugin-transform-runtime',
                     isDev && require.resolve('react-refresh/babel'),
                 ].filter(Boolean),
             },
+        },
+        resolve: {
+            extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
         },
     };
 }

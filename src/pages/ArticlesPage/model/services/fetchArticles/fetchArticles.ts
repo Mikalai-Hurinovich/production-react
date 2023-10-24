@@ -2,16 +2,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { IArticle } from 'entities/Article';
 import {
-    getArticlesSortField, getArticlesSortOrder, getArticlesSortSearch, getArticlesSortType,
+    getArticlesSortField,
+    getArticlesSortOrder,
+    getArticlesSortSearch,
+    getArticlesSortType,
 } from 'features/articlesSort';
 import { addQueryParams } from 'shared/lib/route/addQueryParams/addQueryParams';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { getArticlesPageLimit, getArticlesPageNumber } from '../../selectors/articlesPageSelectors';
 
 export const fetchArticles = createAsyncThunk<
-  IArticle[],
-  { replace?: boolean },
-  ThunkConfig<string>
+    IArticle[],
+    { replace?: boolean },
+    ThunkConfig<string>
 >(
     'articlesPage/fetchArticlesPage',
     async (_, thunkApi) => {
