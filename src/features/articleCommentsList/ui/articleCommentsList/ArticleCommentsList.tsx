@@ -20,7 +20,7 @@ export const ArticleCommentsList = memo(({ articleId, className }: ArticleCommen
     const { isLoading, data: comments } = useArticleCommentsList(articleId);
     const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
-    const handleSendComment = useCallback((text) => {
+    const handleSendComment = useCallback((text: string) => {
         dispatch(addArticleComment(text));
     }, [dispatch]);
     return (

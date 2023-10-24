@@ -7,7 +7,10 @@ import ArticlesSort from 'features/articlesSort/ui/articlesSort/ArticlesSort';
 import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher/ui/ArticlesViewSwitcher';
 import { useSelector } from 'react-redux';
 import {
-    ArticleSortFieldEnum, articlesSortActions, getArticlesSortSearch, getArticlesSortType,
+    ArticleSortFieldEnum,
+    articlesSortActions,
+    getArticlesSortSearch,
+    getArticlesSortType,
 } from 'features/articlesSort';
 import { SelectOption } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types/sortOrder';
@@ -19,7 +22,7 @@ import { ArticleType, ArticleViewEnum } from '../../model/types/article';
 import styles from './ArticlesFilters.module.scss';
 
 interface ArticlesFiltersProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  className?: string;
+    className?: string;
 }
 
 export const ArticlesFilters: FC<ArticlesFiltersProps> = ({ className }) => {
@@ -48,19 +51,19 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = ({ className }) => {
             content: t(type),
         })), [t]);
 
-    const onArticleSortFieldChange = useCallback((field) => {
+    const onArticleSortFieldChange = useCallback((field: ArticleSortFieldEnum) => {
         dispatch(articlesSortActions.setSortField(field));
         dispatch(articlesPageActions.setPage(1));
         debouncedFetchFilteredData();
     }, [dispatch, debouncedFetchFilteredData]);
 
-    const onArticleSortOrderChange = useCallback((value) => {
+    const onArticleSortOrderChange = useCallback((value: SortOrder) => {
         dispatch(articlesSortActions.setOrder(value));
         dispatch(articlesPageActions.setPage(1));
         debouncedFetchFilteredData();
     }, [dispatch, debouncedFetchFilteredData]);
 
-    const onSearchChange = useCallback((searchTerm) => {
+    const onSearchChange = useCallback((searchTerm: string) => {
         dispatch(articlesSortActions.setSearch(searchTerm));
         dispatch(articlesPageActions.setPage(1));
         debouncedFetchFilteredData();

@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
@@ -89,7 +88,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <PageWrapper className={classNames('', {}, [className])}>
+            <PageWrapper className={className}>
                 <ProfilePageHeader />
                 { validateErrors?.length && validateErrors.map((err) => (
                     <Text

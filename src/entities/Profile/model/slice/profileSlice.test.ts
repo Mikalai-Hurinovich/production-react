@@ -8,7 +8,7 @@ const data = {
     username: 'admin',
     age: 22,
     country: Country.Ukraine,
-    lastname: 'ulbi tv',
+    lastname: 'Mikola',
     first: 'asd',
     city: 'asf',
     currency: Currency.USD,
@@ -18,8 +18,8 @@ describe('profileSlice.test', () => {
     test('test set readonly', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: false };
         expect(profileReducer(
-      state as ProfileSchema,
-      profileActions.setReadonly(true),
+            state as ProfileSchema,
+            profileActions.setReadonly(true),
         )).toEqual({ readonly: true });
     });
 
@@ -27,8 +27,8 @@ describe('profileSlice.test', () => {
         const state: DeepPartial<ProfileSchema> = { data, form: { username: '' } };
 
         expect(profileReducer(
-      state as ProfileSchema,
-      profileActions.cancelEdit(),
+            state as ProfileSchema,
+            profileActions.cancelEdit(),
         )).toEqual({
             readonly: true,
             validateErrors: undefined,
@@ -41,10 +41,10 @@ describe('profileSlice.test', () => {
         const state: DeepPartial<ProfileSchema> = { form: { username: '123' } };
 
         expect(profileReducer(
-      state as ProfileSchema,
-      profileActions.updateProfile({
-          username: '123456',
-      }),
+            state as ProfileSchema,
+            profileActions.updateProfile({
+                username: '123456',
+            }),
         )).toEqual({
             form: { username: '123456' },
         });
@@ -57,8 +57,8 @@ describe('profileSlice.test', () => {
         };
 
         expect(profileReducer(
-      state as ProfileSchema,
-      updateProfileData.pending,
+            state as ProfileSchema,
+            updateProfileData.pending,
         )).toEqual({
             isLoading: true,
             validateErrors: undefined,
@@ -71,8 +71,8 @@ describe('profileSlice.test', () => {
         };
 
         expect(profileReducer(
-      state as ProfileSchema,
-      updateProfileData.fulfilled(data, '', '1'),
+            state as ProfileSchema,
+            updateProfileData.fulfilled(data, '', '1'),
         )).toEqual({
             isLoading: false,
             validateErrors: undefined,
