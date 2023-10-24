@@ -3,9 +3,9 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleViewEnum, IArticle } from '../../model/types/article';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { ArticleViewEnum, IArticle } from '../../model/types/article';
 import styles from './ArticleList.module.scss';
 
 interface ArticleListProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

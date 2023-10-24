@@ -4,7 +4,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import ArticlesSort from 'features/articlesSort/ui/articlesSort/ArticlesSort';
-import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher/ui/ArticlesViewSwitcher';
+import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher';
 import { useSelector } from 'react-redux';
 import {
     ArticleSortFieldEnum,

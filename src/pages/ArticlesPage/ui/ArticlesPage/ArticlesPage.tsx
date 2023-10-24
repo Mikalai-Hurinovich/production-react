@@ -13,14 +13,17 @@ import { useSearchParams } from 'react-router-dom';
 import { SortOrder } from 'shared/types/sortOrder';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticles/fetchNextArticlesPage';
-import { getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageView }
-    from '../../model/selectors/articlesPageSelectors';
+import {
+    getArticlesPageInited,
+    getArticlesPageIsLoading,
+    getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import styles from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
-  className?: string;
+    className?: string;
 }
 
 const reducers: ReducersList = {
@@ -39,8 +42,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const [searchParams] = useSearchParams();
     const onNextArticlePartLoad = useCallback(() => {
         dispatch(fetchNextArticlesPage());
-    // eslint-disable-next-line
-  }, [ dispatch, isLoading ]);
+        // eslint-disable-next-line
+    }, [ dispatch, isLoading ]);
     const initArticlesData = () => {
         if (!isInited) {
             dispatch(articlesPageActions.initPage());

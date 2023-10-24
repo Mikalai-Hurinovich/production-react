@@ -1,5 +1,5 @@
 export { ArticleSortFieldEnum } from './model/types/articlesSortField';
-export { ArticlesSortSchema } from './model/types/articlesSortSchema';
+export type { ArticlesSortSchema } from './model/types/articlesSortSchema';
 
 export {
     getArticlesSortIsLoading,
