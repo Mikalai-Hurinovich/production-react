@@ -111,8 +111,8 @@ describe('ProfileCard', () => {
     });
     test('allows editing select fields', async () => {
         await userEvent.click(screen.getByTestId('edit-button'));
-        const currencySelect = screen.getByRole('button', { name: 'USD' });
-        const countrySelect = screen.getByRole('button', { name: 'Belarus' });
+        const countrySelect = screen.getByText('Belarus');
+        const currencySelect = screen.getByText('USD');
 
         fireEvent.click(currencySelect);
         await userEvent.click(screen.getByRole('option', { name: 'EUR' }));

@@ -1,15 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
-import ListBox from 'shared/ui/Listbox/ListBox';
+import { ListBox } from 'shared/ui/Popups';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
-  className?: string;
-  value?: Country;
-  onChange?: (value: Country) => void;
-  readonly?: boolean;
+    className?: string;
+    value?: Country;
+    onChange?: (value: Country) => void;
+    readonly?: boolean;
 }
 
 const options = [
@@ -31,13 +29,12 @@ export const CountrySelect = memo(({
 
     return (
         <ListBox
-            options={options}
+            items={options}
             onChange={onChangeHandler}
             value={value}
             label={t('Укажите валюту')}
             className={className}
             readonly={readonly}
-            direction="top"
         />
     );
 });
