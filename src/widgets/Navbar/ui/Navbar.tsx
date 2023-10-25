@@ -6,9 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     getUserAuthData, isAdmin, isManager, userActions,
 } from 'entities/User';
-import Dropdown from 'shared/ui/Dropdown/Dropdown';
+import { Dropdown } from 'shared/ui/Popups';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { NotificationButton } from 'features/notificationButton';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -38,48 +39,53 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <nav className={classNames(styles.Navbar, {}, [className])}>
-                <Dropdown
-                    optionsOrientation="optionsBottomLeft"
-                    className={styles.dropdown}
-                    items={[
-                        {
-                            content: t('Профиль'),
-                            href: RoutePath.profile + authData.id,
-                        },
-                        ...(isAdminPanelVisible ? [{
-                            content: t('Панель Админа'),
-                            href: RoutePath.admin_panel,
-                        }] : []),
-                        {
-                            content: t('Выйти'),
-                            onClick: onLogout,
-                        },
-                    ]}
-                    trigger={<Avatar size={35} src={authData.avatar} />}
-                />
+                <div className={styles.links}>
+                    <NotificationButton />
+                    <Dropdown
+                        direction="bottom left"
+                        className={styles.dropdown}
+                        items={[
+                            {
+                                content: t('Профиль'),
+                                href: RoutePath.profile + authData.id,
+                            },
+                            ...(isAdminPanelVisible ? [{
+                                content: t('Панель Админа'),
+                                href: RoutePath.admin_panel,
+                            }] : []),
+                            {
+                                content: t('Выйти'),
+                                onClick: onLogout,
+                            },
+                        ]}
+                        trigger={<Avatar size={35} src={authData.avatar} />}
+                    />
+                </div>
             </nav>
         );
     }
 
     return (
         <nav className={classNames(styles.Navbar, {}, [className])}>
-            <Dropdown
-                optionsOrientation="optionsBottomLeft"
-                className={styles.dropdown}
-                items={[
-                    {
-                        content: t('Войти'),
-                        onClick: onShowModal,
-                    },
-                ]}
-                trigger={<Avatar size={35} />}
-            />
-            { isAuthModal && (
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onCloseModal}
+            <div className={styles.links}>
+                <Dropdown
+                    direction="bottom left"
+                    className={styles.dropdown}
+                    items={[
+                        {
+                            content: t('Войти'),
+                            onClick: onShowModal,
+                        },
+                    ]}
+                    trigger={<Avatar size={35} />}
                 />
-            ) }
+                { isAuthModal && (
+                    <LoginModal
+                        isOpen={isAuthModal}
+                        onClose={onCloseModal}
+                    />
+                ) }
+            </div>
         </nav>
     );
 });

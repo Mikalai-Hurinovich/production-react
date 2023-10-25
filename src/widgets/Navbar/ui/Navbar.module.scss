@@ -7,8 +7,10 @@
     padding: 20px;
 }
 
-.links,
-.dropdown {
+.links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-left: auto;
 }
 

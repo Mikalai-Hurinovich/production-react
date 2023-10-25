@@ -1,3 +1,5 @@
+const removeDataTestid = require('../plugins/remove-data-testid');
+
 interface buildBabelLoaderProps {
     isDev?: boolean;
     isTsx?: boolean;
@@ -24,6 +26,7 @@ export function buildBabelLoader({ isDev, isTsx }: buildBabelLoaderProps) {
                         { isTsx },
                     ],
                     '@babel/plugin-transform-runtime',
+                    isTsx && removeDataTestid,
                     isDev && require.resolve('react-refresh/babel'),
                 ].filter(Boolean),
             },

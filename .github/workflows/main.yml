@@ -1,38 +1,49 @@
 name: linting, testing, building
+
 on:
   push:
-    branches: [master, develop]
+    branches:
+      - master
+      - develop
   pull_request:
-    branches: [master]
+    branches:
+      - master
+
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [17.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
+          node-version: 17.x
+
+      - name: Install modules
         run: npm install
-      - name: build production project
+
+      - name: Build production project
         run: npm run build:prod
         if: always()
-      - name: linting typescript
+
+      - name: Linting TypeScript
         run: npm run lint:ts
         if: always()
-      - name: linting css
+
+      - name: Linting CSS
         run: npm run lint:scss
-      - name: unit testing
-        if: always()
+
+      - name: Unit Testing
         run: npm run test:unit
-      - name: build storybook
+        if: always()
+
+      - name: Build Storybook
         run: npm run storybook:build
         if: always()
-      - name: screenshot testing
+
+      - name: Screenshot Testing
         run: npm run test:ui:ci
         if: always()

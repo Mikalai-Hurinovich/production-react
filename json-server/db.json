@@ -989,5 +989,27 @@
       "username": "admin213",
       "avatar": "https://imgv3.fotor.com/images/gallery/watercolor-female-avatar.jpg"
     }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Notification 1",
+      "description": "Some event occurred",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Notification 2",
+      "description": "Some event occurred",
+      "userId": "1",
+      "href": "https://google.com"
+    },
+    {
+      "id": "3",
+      "title": "Notification 3",
+      "description": "Some event occurred",
+      "userId": "1",
+      "href": "https://google.com"
+    }
   ]
 }
