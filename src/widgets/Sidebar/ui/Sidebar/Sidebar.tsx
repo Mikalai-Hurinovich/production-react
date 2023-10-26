@@ -9,11 +9,11 @@ import styles from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
     const sidebarItemsList = useSelector(getSidebarItems);
     const onToggle = () => {
         setCollapsed((prev) => !prev);
@@ -40,10 +40,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 size={ButtonSize.L}
                 square
             >
-                {collapsed ? '>' : '<'}
+                { collapsed ? '>' : '<' }
             </Button>
             <div className={styles.items}>
-                {itemsList}
+                { itemsList }
             </div>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
