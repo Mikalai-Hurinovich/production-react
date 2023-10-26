@@ -1,6 +1,7 @@
 .notifications {
     min-height: 150px;
     max-height: 300px;
-    width: 500px;
+    width: 100%;
+    min-width: 320px;
     overflow-y: auto;
 }
