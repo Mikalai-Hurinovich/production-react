@@ -1,0 +1,5 @@
+# Browsers that we support, it will reduce main bundle by avoid adding polyfills for old browser
+defaults
+not IE 11
+not dead
+> 2%
