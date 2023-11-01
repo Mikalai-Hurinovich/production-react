@@ -61,7 +61,7 @@ describe('addArticleComment.test', () => {
         const thunk = new TestAsyncThunk(addArticleComment);
         thunk.api.post.mockReturnValue(Promise.resolve({ data: commentData }));
         const res = await thunk.callThunk(comment);
-        expect(thunk.dispatch).toHaveBeenCalledTimes(3);
+        expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.post).toHaveBeenCalled();
         expect(res.meta.requestStatus).toBe('fulfilled');
         expect(res.meta.arg).toBe(comment);

@@ -13,6 +13,9 @@ export const parameters = {
             date: /Date$/,
         },
     },
+    mockAddonConfigs: {
+        ignoreQueryParams: true,
+    },
 };
 
 addDecorator(LazyDecorator);

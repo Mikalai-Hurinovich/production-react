@@ -17,11 +17,13 @@ interface ArticleCommentsListProps extends DetailedHTMLProps<HTMLAttributes<HTML
 }
 
 export const ArticleCommentsList = memo(({ articleId, className }: ArticleCommentsListProps) => {
-    const { isLoading, data: comments } = useArticleCommentsList(articleId);
+    const { isLoading, data: comments, refetch } = useArticleCommentsList(articleId);
     const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
     const handleSendComment = useCallback((text: string) => {
         dispatch(addArticleComment(text));
+        refetch();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch]);
     return (
         <div className={classNames(styles.articlecommentslist, {}, [className])}>

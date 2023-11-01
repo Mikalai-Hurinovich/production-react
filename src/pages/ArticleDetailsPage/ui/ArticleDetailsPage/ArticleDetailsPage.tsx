@@ -9,6 +9,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 import { ArticleCommentsList } from 'features/articleCommentsList/ui/articleCommentsList/ArticleCommentsList';
+import { ArticleRating } from 'features/articleRating';
 import { articleDetailsPageReducer } from '../../model/slices';
 import styles from './ArticleDetailsPage.module.scss';
 
@@ -44,6 +45,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 <Button onClick={handleBackClick}>{ t('Назад') }</Button>
                 <ArticleDetails id={articleId} />
+                <ArticleRating id={articleId} />
                 <ArticleRecommendationsList />
                 <ArticleCommentsList articleId={articleId} />
             </PageWrapper>

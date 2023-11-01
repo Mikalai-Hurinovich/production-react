@@ -93,5 +93,18 @@ Normal.parameters = {
                 { ...article, id: '4' },
             ],
         },
+        {
+            url: `${__API__}/article-ratings/*`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {
+                    id: '1',
+                    value: 3,
+                    userId: '1',
+                    articleId: '1',
+                },
+            ],
+        },
     ],
 };

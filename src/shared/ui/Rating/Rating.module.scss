@@ -1,0 +1,16 @@
+.rating {
+    display: flex;
+}
+
+.starIcon {
+    fill: white;
+    cursor: pointer;
+}
+
+.filled {
+    fill: var(--primary-color);
+}
+
+.voted {
+    pointer-events: none;
+}

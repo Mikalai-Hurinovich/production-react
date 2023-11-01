@@ -107,6 +107,230 @@
       "articleId": "4",
       "userId": "1",
       "id": "oNAPz9v"
+    },
+    {
+      "body": "Some Comment...",
+      "articleId": "2",
+      "userId": "1",
+      "id": "cNWqtwr"
+    },
+    {
+      "body": "comment",
+      "articleId": "2",
+      "userId": "1",
+      "id": "eCcIp68"
+    },
+    {
+      "body": "New One!",
+      "articleId": "2",
+      "userId": "1",
+      "id": "MEWx4IJ"
+    },
+    {
+      "body": "Sec one!",
+      "articleId": "2",
+      "userId": "1",
+      "id": "M6VUV8O"
+    },
+    {
+      "body": "awdawd",
+      "articleId": "2",
+      "userId": "1",
+      "id": "3996-jb"
+    },
+    {
+      "body": "New",
+      "articleId": "2",
+      "userId": "1",
+      "id": "3T5Eok_"
+    },
+    {
+      "body": "awdawd!!!!",
+      "articleId": "2",
+      "userId": "1",
+      "id": "nz1RTtY"
+    },
+    {
+      "body": "Super!",
+      "articleId": "2",
+      "userId": "1",
+      "id": "B3GAcE8"
+    },
+    {
+      "body": "!!!!",
+      "articleId": "2",
+      "userId": "1",
+      "id": "HBNM5Nq"
+    },
+    {
+      "body": "muawdawd",
+      "articleId": "3",
+      "userId": "2",
+      "id": "7ojYKmu"
+    }
+  ],
+  "article-ratings": [
+    {
+      "value": 3,
+      "userId": "1",
+      "articleId": "13",
+      "id": 1
+    },
+    {
+      "value": 4,
+      "userId": "1",
+      "articleId": "1",
+      "id": 2
+    },
+    {
+      "value": 3,
+      "userId": "1",
+      "articleId": "3",
+      "id": 3
+    },
+    {
+      "value": 1,
+      "userId": "1",
+      "articleId": "15",
+      "id": 4
+    },
+    {
+      "value": 5,
+      "userId": "1",
+      "articleId": "15",
+      "id": 5
+    },
+    {
+      "value": 2,
+      "userId": "1",
+      "articleId": "15",
+      "id": 6
+    },
+    {
+      "value": 4,
+      "userId": "1",
+      "articleId": "10",
+      "id": 7
+    },
+    {
+      "value": 4,
+      "userId": "1",
+      "articleId": "16",
+      "id": 8
+    },
+    {
+      "value": 3,
+      "userId": "1",
+      "articleId": "16",
+      "id": 9
+    },
+    {
+      "value": 4,
+      "userId": "1",
+      "articleId": "16",
+      "id": 10
+    },
+    {
+      "value": 3,
+      "userId": "1",
+      "articleId": "12",
+      "id": 11
+    },
+    {
+      "value": 4,
+      "userId": "2",
+      "articleId": "1",
+      "id": 12
+    },
+    {
+      "value": 1,
+      "userId": "2",
+      "articleId": "1",
+      "id": 13
+    },
+    {
+      "value": 4,
+      "userId": "1",
+      "articleId": "2",
+      "id": 14
+    },
+    {
+      "value": 4,
+      "userId": "1",
+      "articleId": "2",
+      "id": 15
+    },
+    {
+      "value": 2,
+      "userId": "1",
+      "articleId": "2",
+      "id": 16
+    },
+    {
+      "value": 2,
+      "userId": "1",
+      "articleId": "2",
+      "id": 17
+    },
+    {
+      "value": 4,
+      "userId": "1",
+      "articleId": "4",
+      "id": 18
+    },
+    {
+      "value": 3,
+      "userId": "1",
+      "articleId": "4",
+      "id": 19
+    },
+    {
+      "value": 2,
+      "userId": "1",
+      "articleId": "4",
+      "id": 20
+    },
+    {
+      "value": 5,
+      "userId": "2",
+      "articleId": "3",
+      "id": 21
+    },
+    {
+      "value": 3,
+      "userId": "2",
+      "articleId": "3",
+      "id": 22
+    },
+    {
+      "value": 4,
+      "userId": "2",
+      "articleId": "3",
+      "id": 23
+    },
+    {
+      "value": 3,
+      "userId": "2",
+      "articleId": "3",
+      "id": 24
+    },
+    {
+      "value": 4,
+      "userId": "2",
+      "articleId": "2",
+      "id": 25
+    },
+    {
+      "value": 5,
+      "userId": "2",
+      "articleId": "2",
+      "id": 26
+    },
+    {
+      "value": 3,
+      "userId": "2",
+      "articleId": "2",
+      "id": 27
     }
   ],
   "articles": [
@@ -958,6 +1182,15 @@
     },
     {
       "id": "2",
+      "username": "admin2",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"
+    },
+    {
+      "id": "3",
       "username": "user",
       "password": "123",
       "roles": [
