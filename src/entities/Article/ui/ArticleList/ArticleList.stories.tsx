@@ -94,13 +94,6 @@ const article = {
     ],
 } as IArticle;
 
-export const LoadingPlateView = Template.bind({});
-LoadingPlateView.args = {
-    articles: [],
-    isLoading: true,
-    view: ArticleViewEnum.PLATE,
-};
-
 export const LoadingListView = Template.bind({});
 LoadingListView.args = {
     articles: [],
