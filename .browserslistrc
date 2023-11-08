@@ -1,5 +1,11 @@
 # Browsers that we support, it will reduce main bundle by avoid adding polyfills for old browser
+[production]
 defaults
 not IE 11
 not dead
 > 2%
+
+[development]
+last 2 Chrome versions
+last 2 Firefox versions
+last 1 Safari version
