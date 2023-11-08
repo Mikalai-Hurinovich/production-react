@@ -8,7 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 import { ArticleSortFieldEnum, articlesSortActions, articlesSortReducer } from 'features/articlesSort';
-import { ArticlesFilters } from 'entities/Article/ui/ArticlesFilters/ArticlesFilters';
+import ArticlesFilters from 'entities/Article/ui/ArticlesFilters/ArticlesFilters';
 import { useSearchParams } from 'react-router-dom';
 import { SortOrder } from 'shared/types/sortOrder';
 import { ArticleType } from 'entities/Article/model/types/article';

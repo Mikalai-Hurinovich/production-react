@@ -21,7 +21,7 @@ interface ArticleRatingProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 
 export const ArticleRating = memo(({ className, id }: ArticleRatingProps) => {
     const { t } = useTranslation();
-    const { isLoading, data: ratings } = useArticleRating(id);
+    const { isLoading, data: ratings = [] } = useArticleRating(id);
     const [postRating] = usePostArticleRating();
     const authData = useSelector(getUserAuthData);
     const { data: userRatings } = useArticleRatingByUserId({ articleId: id, userId: authData?.id ?? '' });

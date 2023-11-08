@@ -1,5 +1,5 @@
 import {
-    DetailedHTMLProps, FC, HTMLAttributes, useCallback, useMemo,
+    DetailedHTMLProps, FC, HTMLAttributes, memo, useCallback, useMemo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -25,7 +25,7 @@ interface ArticlesFiltersProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivE
     className?: string;
 }
 
-export const ArticlesFilters: FC<ArticlesFiltersProps> = ({ className }) => {
+const ArticlesFilters = memo(({ className }: ArticlesFiltersProps) => {
     const { t } = useTranslation();
     const search = useSelector(getArticlesSortSearch);
     const type = useSelector(getArticlesSortType);
@@ -95,4 +95,5 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = ({ className }) => {
             <Tabs<ArticleType> tabs={articlesTypes} value={type} onTabClick={handleTypeChange} />
         </>
     );
-};
+});
+export default ArticlesFilters;

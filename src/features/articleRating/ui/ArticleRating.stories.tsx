@@ -18,10 +18,12 @@ export default {
 
 const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
-Normal.parameters = {
+export const NoRating = Template.bind({});
+NoRating.args = {
+    id: '1',
+};
+NoRating.decorators = [StoreDecorator({})];
+NoRating.parameters = {
     mockData: [
         {
             url: `${__API__}/article-ratings/*`,

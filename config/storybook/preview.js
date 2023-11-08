@@ -16,6 +16,7 @@ export const parameters = {
     mockAddonConfigs: {
         ignoreQueryParams: true,
     },
+    layout: 'fullscreen',
 };
 
 addDecorator(LazyDecorator);

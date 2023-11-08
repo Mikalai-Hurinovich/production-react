@@ -8,6 +8,7 @@ import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { CountrySelect } from 'entities/Country';
+import { memo } from 'react';
 import styles from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
@@ -27,7 +28,7 @@ export interface ProfileCardProps {
     onChangeCountry?: (country: Country) => void;
 }
 
-export const ProfileCard = (props: ProfileCardProps) => {
+export const ProfileCard = memo((props: ProfileCardProps) => {
     const {
         className,
         data,
@@ -143,4 +144,4 @@ export const ProfileCard = (props: ProfileCardProps) => {
             </div>
         </div>
     );
-};
+});
