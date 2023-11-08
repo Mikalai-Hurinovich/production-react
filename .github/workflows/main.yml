@@ -47,3 +47,7 @@ jobs:
       - name: Screenshot Testing
         run: npm run test:ui:ci
         if: always()
+
+      - name: Post-install cleaning
+        run: npm run postinstall
+        if: always()
