@@ -94,6 +94,21 @@ LoadingPlateView.decorators = [StoreDecorator({
         view: ArticleViewEnum.PLATE,
     },
 })];
+export const PlateView = Template.bind({});
+PlateView.args = {};
+PlateView.decorators = [StoreDecorator({
+    articlesPage: {
+        isLoading: false,
+        error: '',
+        ids: ['1'],
+        entities,
+        page: 1,
+        hasMore: false,
+        limit: 10,
+        view: ArticleViewEnum.PLATE,
+    },
+})];
+
 export const DarkPlateView = Template.bind({});
 DarkPlateView.args = {};
 DarkPlateView.decorators = [StoreDecorator({

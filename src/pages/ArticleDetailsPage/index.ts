@@ -16,3 +16,4 @@ export {
 
 export type { ArticleDetailsRecommendationsSchema } from './model/types/ArticleDetailsRecommendationsSchema';
 export type { ArticleDetailsPageSchema } from './model/types/articleDetailsPageSchema';
+export { articleDetailsPageReducer } from './model/slices/index';
