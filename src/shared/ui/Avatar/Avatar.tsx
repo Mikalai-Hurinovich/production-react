@@ -1,5 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { CSSProperties, useMemo } from 'react';
+import { LazyImage } from '../LazyImage/LazyImage';
 import styles from './Avatar.module.scss';
 
 interface AvatarProps {
@@ -23,7 +24,7 @@ export const Avatar = ({
     }), [size]);
 
     return (
-        <img
+        <LazyImage
             src={src}
             alt={alt}
             style={style}
