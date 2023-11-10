@@ -11,6 +11,8 @@ import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { LazyImage } from 'shared/ui/LazyImage/LazyImage';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import {
     ArticleBlockType, ArticleTextBlock, ArticleViewEnum, IArticle,
 } from '../../model/types/article';
@@ -55,7 +57,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     </div>
                     <Text title={article.title} className={styles.title} />
                     { types }
-                    <img src={article.img} className={styles.img} alt={article.title} />
+                    <LazyImage
+                        fallback={<Skeleton width="100%" height={250} />}
+                        src={article.img}
+                        className={styles.img}
+                        alt={article.title}
+                    />
                     { textBlock && (
                         <ArticleTextBlockComponent block={textBlock} className={styles.textBlock} />
                     ) }
@@ -77,7 +84,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <AppLink target={target} to={RoutePath.article_details + article.id}>
                 <Card className={styles.card}>
                     <div className={styles.imageWrapper}>
-                        <img alt={article.title} src={article.img} className={styles.img} />
+                        <LazyImage
+                            fallback={(
+                                <Skeleton
+                                    height={200}
+                                    width={200}
+                                />
+                            )}
+                            alt={article.title}
+                            src={article.img}
+                            className={styles.img}
+                        />
                         <Text text={article.createdAt} className={styles.date} />
                     </div>
                     <div className={styles.infoWrapper}>
