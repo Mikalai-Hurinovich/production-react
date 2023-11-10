@@ -11,7 +11,7 @@ const MainPage = () => {
     };
 
     return (
-        <PageWrapper>
+        <PageWrapper data-testid="MainPage">
             { t('Главная страница') }
         </PageWrapper>
     );
