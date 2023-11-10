@@ -74,6 +74,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <PageWrapper
+                data-testid="ArticlesPage"
                 onScrollEnd={onNextArticlePartLoad}
                 className={classNames(styles.ArticlesPage, {}, [className])}
                 scrollSaveEnabled

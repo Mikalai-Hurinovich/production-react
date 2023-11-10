@@ -47,7 +47,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
     };
-
     useInitialEffect(() => {
         if (id) {
             dispatch(fetchProfileData(id));
@@ -88,7 +87,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <PageWrapper className={className}>
+            <PageWrapper data-testid="ProfilePage" className={className}>
                 <ProfilePageHeader />
                 { validateErrors?.length && validateErrors.map((err) => (
                     <Text

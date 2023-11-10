@@ -1,4 +1,5 @@
 import {
+    DetailedHTMLProps, HTMLAttributes,
     memo, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -11,17 +12,18 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useSelector } from 'react-redux';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { TestProps } from 'shared/types/testTypes';
 import styles from './PageWrapper.module.scss';
 
-interface PageWrapperProps {
-  children: ReactNode;
-  className?: string;
-  onScrollEnd?: () => void;
-  scrollSaveEnabled?: boolean;
+interface PageWrapperProps extends TestProps {
+    children: ReactNode;
+    className?: string;
+    onScrollEnd?: () => void;
+    scrollSaveEnabled?: boolean;
 }
 
 export const PageWrapper = memo(({
-    className, children, onScrollEnd, scrollSaveEnabled = false,
+    className, children, onScrollEnd, scrollSaveEnabled = false, ...restProps
 }: PageWrapperProps) => {
     const { t } = useTranslation();
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -48,12 +50,13 @@ export const PageWrapper = memo(({
 
     return (
         <section
+            data-testid={restProps['data-testid']}
             onScroll={scrollHandler}
             ref={wrapperRef}
             className={classNames(styles.pagewrapper, {}, [className])}
         >
-            {children}
-            {onScrollEnd && <div ref={triggerRef} className={styles.scrollTrigger} />}
+            { children }
+            { onScrollEnd && <div ref={triggerRef} className={styles.scrollTrigger} /> }
         </section>
     );
 });
