@@ -10,7 +10,7 @@ interface NotFoundPageProps {
 export const NotFoundPage = ({ className }: NotFoundPageProps) => {
     const { t } = useTranslation();
     return (
-        <PageWrapper data-testid="NotFoundPage" className={classNames(styles.NotFoundPage, {}, [className])}>
+        <PageWrapper testId="NotFoundPage" className={classNames(styles.NotFoundPage, {}, [className])}>
             { t('Страница не найдена') }
         </PageWrapper>
     );

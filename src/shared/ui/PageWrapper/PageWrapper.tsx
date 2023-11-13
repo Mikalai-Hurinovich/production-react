@@ -22,8 +22,8 @@ interface PageWrapperProps extends TestProps {
     scrollSaveEnabled?: boolean;
 }
 
-export const PageWrapper = memo(({
-    className, children, onScrollEnd, scrollSaveEnabled = false, ...restProps
+export const PageWrapper = ({
+    className, children, onScrollEnd, scrollSaveEnabled = false, testId, ...restProps
 }: PageWrapperProps) => {
     const { t } = useTranslation();
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -35,7 +35,6 @@ export const PageWrapper = memo(({
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
-
     const handleScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
         dispatch(scrollSaveActions.setScrollPosition(
             {
@@ -50,7 +49,7 @@ export const PageWrapper = memo(({
 
     return (
         <section
-            data-testid={restProps['data-testid']}
+            data-testid={testId}
             onScroll={scrollHandler}
             ref={wrapperRef}
             className={classNames(styles.pagewrapper, {}, [className])}
@@ -59,4 +58,4 @@ export const PageWrapper = memo(({
             { onScrollEnd && <div ref={triggerRef} className={styles.scrollTrigger} /> }
         </section>
     );
-});
+};
