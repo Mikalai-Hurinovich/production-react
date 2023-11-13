@@ -20,11 +20,16 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "lint-staged": "lint-staged",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
     "prepare": "husky install",
     "generate:template": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/remove-cache.js"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint \"**/*.{ts,tsx}\"",
+    "**/*.scss": "npx stylelint \"**/*.scss\""
   },
   "keywords": [],
   "author": "",
@@ -80,6 +85,7 @@
     "jest": "^27.5.1",
     "jest-html-reporters": "^3.1.4",
     "json-server": "^0.17.0",
+    "lint-staged": "^15.1.0",
     "loki": "^0.28.1",
     "mini-css-extract-plugin": "^2.5.3",
     "react-refresh": "^0.12.0",
