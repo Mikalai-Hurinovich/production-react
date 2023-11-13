@@ -52,9 +52,9 @@ const entities = {
 };
 const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
 
-export const ListView = Template.bind({});
-ListView.args = {};
-ListView.decorators = [StoreDecorator({
+export const ArticlesListView = Template.bind({});
+ArticlesListView.args = {};
+ArticlesListView.decorators = [StoreDecorator({
     articlesPage: {
         isLoading: false,
         error: '',
@@ -66,9 +66,9 @@ ListView.decorators = [StoreDecorator({
         view: ArticleViewEnum.LIST,
     },
 })];
-export const ListViewDark = Template.bind({});
-ListViewDark.args = {};
-ListViewDark.decorators = [StoreDecorator({
+export const ArticlesListViewDark = Template.bind({});
+ArticlesListViewDark.args = {};
+ArticlesListViewDark.decorators = [StoreDecorator({
     articlesPage: {
         isLoading: false,
         error: '',
@@ -80,9 +80,9 @@ ListViewDark.decorators = [StoreDecorator({
         view: ArticleViewEnum.LIST,
     },
 }), ThemeDecorator(Theme.DARK)];
-export const LoadingPlateView = Template.bind({});
-LoadingPlateView.args = {};
-LoadingPlateView.decorators = [StoreDecorator({
+export const ArticlesListLoadingPlateView = Template.bind({});
+ArticlesListLoadingPlateView.args = {};
+ArticlesListLoadingPlateView.decorators = [StoreDecorator({
     articlesPage: {
         isLoading: true,
         error: '',
@@ -94,9 +94,9 @@ LoadingPlateView.decorators = [StoreDecorator({
         view: ArticleViewEnum.PLATE,
     },
 })];
-export const PlateView = Template.bind({});
-PlateView.args = {};
-PlateView.decorators = [StoreDecorator({
+export const ArticlesListPlate = Template.bind({});
+ArticlesListPlate.args = {};
+ArticlesListPlate.decorators = [StoreDecorator({
     articlesPage: {
         isLoading: false,
         error: '',
@@ -109,9 +109,9 @@ PlateView.decorators = [StoreDecorator({
     },
 })];
 
-export const DarkPlateView = Template.bind({});
-DarkPlateView.args = {};
-DarkPlateView.decorators = [StoreDecorator({
+export const ArticlesListPlateDark = Template.bind({});
+ArticlesListPlateDark.args = {};
+ArticlesListPlateDark.decorators = [StoreDecorator({
     articlesPage: {
         isLoading: false,
         error: '',
