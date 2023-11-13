@@ -52,34 +52,6 @@ const entities = {
 };
 const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
 
-export const ArticlesListView = Template.bind({});
-ArticlesListView.args = {};
-ArticlesListView.decorators = [StoreDecorator({
-    articlesPage: {
-        isLoading: false,
-        error: '',
-        ids: ['1'],
-        entities,
-        page: 1,
-        hasMore: false,
-        limit: 1,
-        view: ArticleViewEnum.LIST,
-    },
-})];
-export const ArticlesListViewDark = Template.bind({});
-ArticlesListViewDark.args = {};
-ArticlesListViewDark.decorators = [StoreDecorator({
-    articlesPage: {
-        isLoading: false,
-        error: '',
-        ids: ['1'],
-        entities,
-        page: 1,
-        hasMore: false,
-        limit: 1,
-        view: ArticleViewEnum.LIST,
-    },
-}), ThemeDecorator(Theme.DARK)];
 export const ArticlesListLoadingPlateView = Template.bind({});
 ArticlesListLoadingPlateView.args = {};
 ArticlesListLoadingPlateView.decorators = [StoreDecorator({
