@@ -67,7 +67,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <nav className={classNames(styles.Navbar, {}, [className])}>
-            <div className={styles.links}>
+            <div className={styles.links} data-testid="authActions">
                 <Dropdown
                     direction="bottom left"
                     className={styles.dropdown}

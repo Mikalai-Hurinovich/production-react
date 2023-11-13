@@ -87,7 +87,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <PageWrapper data-testid="ProfilePage" className={className}>
+            <PageWrapper testId="ProfilePage" className={className}>
                 <ProfilePageHeader />
                 { validateErrors?.length && validateErrors.map((err) => (
                     <Text
