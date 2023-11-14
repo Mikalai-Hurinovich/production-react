@@ -14,8 +14,8 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import styles from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
-    className?: string;
-    customId?: string;
+  className?: string;
+  customId?: string;
 }
 
 const reducersList: ReducersList = {
@@ -35,15 +35,15 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     if (!articleId) {
         return (
             <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-                { t('Статья не найдена') }
+                {t('Статья не найдена')}
             </PageWrapper>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
-            <PageWrapper className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-                <Button onClick={handleBackClick}>{ t('Назад') }</Button>
+            <PageWrapper testId="ArticleDetailsPage" className={classNames(styles.ArticleDetailsPage, {}, [className])}>
+                <Button onClick={handleBackClick}>{t('Назад')}</Button>
                 <ArticleDetails id={articleId} />
                 <ArticleRating id={articleId} />
                 <ArticleRecommendationsList />
