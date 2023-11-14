@@ -19,13 +19,8 @@ describe('routing', () => {
         });
     });
     describe('authorized user', () => {
-        beforeEach(() => {
-            cy.visit('/');
-            cy.get('[data-testid=authActions]').click().contains('Login').click();
-            cy.get('input').first().type('admin');
-            cy.get('input').last().type('123');
-            cy.contains('Login').click();
-            cy.get('a[href="/articles"]').should('exist');
+        beforeEach('should login', () => {
+            cy.login(Cypress.env('username'), Cypress.env('password'));
         });
         it('should have Main page access', () => {
             cy.visit('/');
@@ -38,6 +33,10 @@ describe('routing', () => {
         it('should have Profile page access', () => {
             cy.visit('/profile/1');
             cy.get('[data-testid=ProfilePage]').should('exist');
+        });
+        it('should have Artilces page access', () => {
+            cy.visit('/articles');
+            cy.get('[data-testid=ArticlesPage]').should('exist');
         });
     });
 });

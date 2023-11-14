@@ -4,6 +4,7 @@
 npm run build:prod
 npm run lint-staged
 npm run test:unit
+npm run test:e2e:run
 npm run storybook:build
 npm run test:ui
 npm run postinstall

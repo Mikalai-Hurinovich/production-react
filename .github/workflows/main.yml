@@ -29,12 +29,9 @@ jobs:
         run: npm run build:prod
         if: always()
 
-      - name: Linting TypeScript
-        run: npm run lint:ts
+      - name: Linting TypeScript and Linting CSS
+        run: npm run lint-staged
         if: always()
-
-      - name: Linting CSS
-        run: npm run lint:scss
 
       - name: Unit Testing
         run: npm run test:unit
