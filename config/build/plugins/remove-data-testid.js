@@ -1,7 +1,6 @@
 const babel = require('babel-core');
 const t = require('babel-types');
 
-console.log('remove - data - testid');
 // Define the plugin name and visitor object
 module.exports = (babel) => ({
     name: 'remove-data-testid',

@@ -23,7 +23,7 @@ import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles'
 import styles from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
-    className?: string;
+  className?: string;
 }
 
 const reducers: ReducersList = {
@@ -42,8 +42,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const [searchParams] = useSearchParams();
     const onNextArticlePartLoad = useCallback(() => {
         dispatch(fetchNextArticlesPage());
-        // eslint-disable-next-line
-    }, [ dispatch, isLoading ]);
+    // eslint-disable-next-line
+  }, [ dispatch, isLoading ]);
     const initArticlesData = () => {
         if (!isInited) {
             dispatch(articlesPageActions.initPage());
@@ -74,7 +74,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <PageWrapper
-                data-testid="ArticlesPage"
+                testId="ArticlesPage"
                 onScrollEnd={onNextArticlePartLoad}
                 className={classNames(styles.ArticlesPage, {}, [className])}
                 scrollSaveEnabled

@@ -15,6 +15,8 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:e2e": "cypress open",
+    "test:e2e:run": "npx cypress run --env version=local",
+    "test:e2e:run:prod": "npx cypress run --env version=prod",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
