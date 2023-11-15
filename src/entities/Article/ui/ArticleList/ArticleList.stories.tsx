@@ -66,7 +66,7 @@ const article = {
         {
             id: '3',
             type: 'CODE',
-            code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
+            code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
         },
         {
             id: '7',
@@ -101,11 +101,11 @@ LoadingListView.args = {
     view: ArticleViewEnum.LIST,
 };
 
-export const ListSmall = Template.bind({});
-ListSmall.args = {
+export const ListSmallWithLoadingFalse = Template.bind({});
+ListSmallWithLoadingFalse.args = {
     articles: new Array(9)
         .fill(0)
-        .map((item, index) => ({
+        .map((_, index) => ({
             ...article,
             id: String(index),
         })),
@@ -113,8 +113,8 @@ ListSmall.args = {
     view: ArticleViewEnum.LIST,
 };
 
-export const ListBig = Template.bind({});
-ListBig.args = {
+export const ListBigWithLoadingFalse = Template.bind({});
+ListBigWithLoadingFalse.args = {
     articles: new Array(9)
         .fill(0)
         .map((item, index) => ({
