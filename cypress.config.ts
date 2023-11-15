@@ -7,19 +7,26 @@ export default defineConfig({
 
             const urls = {
                 local: 'http://localhost:3000',
-                staging: 'https://production-react-uujm-k5zi4vxlr-mikalai-hurinovich.vercel.app',
+                staging:
+          'https://production-react-uujm-k5zi4vxlr-mikalai-hurinovich.vercel.app',
                 prod: 'https://production-react-uujm-k5zi4vxlr-mikalai-hurinovich.vercel.app',
             };
 
             config.baseUrl = urls[version as keyof typeof urls];
             return config;
         },
-        excludeSpecPattern: [
-            '**/examples/**/*.js',
-        ],
+        excludeSpecPattern: ['**/examples/**/*.js'],
     },
+
     env: {
         username: 'admin',
         password: '123',
+    },
+
+    component: {
+        devServer: {
+            framework: 'react',
+            bundler: 'webpack',
+        },
     },
 });
