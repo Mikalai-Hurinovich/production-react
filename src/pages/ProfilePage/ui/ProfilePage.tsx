@@ -28,7 +28,7 @@ const reducers: ReducersList = {
 };
 
 interface ProfilePageProps {
-    className?: string;
+  className?: string;
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
@@ -52,7 +52,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
             dispatch(fetchProfileData(id));
         }
     });
-
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ first: value || '' }));
     }, [dispatch]);
@@ -89,13 +88,13 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <PageWrapper testId="ProfilePage" className={className}>
                 <ProfilePageHeader />
-                { validateErrors?.length && validateErrors.map((err) => (
+                {validateErrors?.length && validateErrors.map((err) => (
                     <Text
                         key={err}
                         theme={TextTheme.ERROR}
                         text={validateErrorTranslates[err]}
                     />
-                )) }
+                ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
